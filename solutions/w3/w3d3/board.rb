@@ -58,7 +58,7 @@ class Board
   end
 
   def in_range?(pos)
-    pos.all? { |x| x.between?(0, grid.length) }
+    pos.all? { |x| x.between?(0, grid.length - 1) }
   end
 
   def place_random_ship
