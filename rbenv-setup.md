@@ -28,16 +28,18 @@ reflect the opinions of App Academy, Major League Baseball, the U.S. government,
 ### For Mac OS X:
 
 1.  Open terminal
-2.  Copy, paste, and run the following, one line at a time:
+2.  First we want to make sure we don't have another ruby version manager on our computer (like rvm). Copy, paste, and run the following, one line at a time:
   - `sudo rvm implode`
     - If it says `sudo: rvm: command not found`, that's fine.
   - `sudo rm -rf ~/.rvm`
   - `brew ls --versions rbenv`
+    - If the `brew` command doesn't work, you must first [install Homebrew] (brew.sh)     
 3. If nothing shows up after you run "brew ls --versions rbenv", copy, paste, and run the following:
   - `brew install rbenv`
   - `brew install ruby-build`
 4. Copy, paste, and run:
   - `atom ~/.bash_profile`
+    - If this doesn't work, you probably haven't ever created your bash profile. Go ahead and make this file using `touch ~/.bash_profile`   
 5. In the text editor:
   - Search (command+F) for "rvm", and delete any lines that have it.
   - Copy and paste the following at the bottom:
