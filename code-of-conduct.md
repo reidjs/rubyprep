@@ -63,7 +63,7 @@ App Academy is dedicated to creating a space that is supportive for all members 
 
 #### The Resolution Process 
 
-App Academy takes a restorative approach to resolving any issues of harassment, meaning that we seek to fully resolve any incidents to the satisfaction of the harassee, and pending this resolution, we seek to reintegrate both the harassee and the harasser into our community whenever possible.  That being said, the safety of our community comes first, and if we deem it unsafe to reintegrate a harasser into the community, that person will be dismissed from App Academy.  
+App Academy takes a restorative approach to resolving any issues of harassment, meaning that we seek to fully resolve any incidents to the satisfaction of any and all parties harmed by the behavior, and pending this resolution, we seek to reintegrate both the harassee and the harasser into our community whenever possible.  That being said, the safety of our community comes first, and if we deem it unsafe to reintegrate a harasser into the community, that person will be dismissed from App Academy.  
 
 The process for reporting and resolving harassment and severe conflict at App Academy is as follows:
 
