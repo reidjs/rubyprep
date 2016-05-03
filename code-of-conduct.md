@@ -59,7 +59,7 @@ App Academy is dedicated to creating a space that is supportive for all members 
   - Using the wrong name or pronoun for a transgender person 
   - Making assumptions about a person's ability or interests based on their race ("You're Asian, so you must be smart.", e.g.)
   
-By their nature, microaggressions are subtle and sometimes even well-meaning.  However, to create a community that is truly inclusive of everyone, it is important for all a/A staff, students, and alumni to confront the biases that lead to these microaggressions.  Reports of implicit verbal harassment will be addressed promptly using the App Academy Resolution Process, outlined below.
+ By their nature, microaggressions are subtle and sometimes even well-meaning.  However, to create a community that is truly inclusive of everyone, it is important for all a/A staff, students, and alumni to confront the biases that lead to these microaggressions.  Reports of implicit verbal harassment will be addressed promptly using the App Academy Resolution Process, outlined below.
 
 #### The Resolution Process 
 
