@@ -14,7 +14,7 @@ App Academy is a rigorous, difficult program.  The only way to succeed at a/A is
 
 3. **Prioritize understanding over brute force completion.**  This guideline may seem counterintuititve to the previous guideline, but what matters most in this program is firm understanding of the concepts at hand.  If you must make a choice between completion without understanding, and understanding without completion, always choose the latter.  What is not acceptable is to walk away from your work without making every effort to thoroughly understand and complete the tasks at hand.  
 
-4. **Ask for help when you need it.**  You will be challenged at App Academy.  You will, at some point, be confused and lost.  This is normal and natural.  We want you to make every effort to understand on your own, but if you find yourself stuck, we also want (and require) you to ask for help from TAs, instructors, and your fellow students, so that you do not fall behind.
+4. **Ask for help when you need it.**  You will be challenged at App Academy.  You will, at some point, be confused and lost.  This is normal and natural.  We want you to make every effort to understand on your own, but if you find yourself stuck, we also expect you to ask for help from TAs, instructors, and your fellow students, so that you do not fall behind.
 
 #### Consequences and Accountability 
 
@@ -24,7 +24,7 @@ App Academy is a rigorous, difficult program.  The only way to succeed at a/A is
 
 **Job Search Curriculum Strikes.**  After the conclusion of the 9-week coding curriculum, you will enter the job search curriculum.  Your coding curriculum strikes will be nullified at this time, and you will become accountable to the job search strike system until you either find a job, or 1 year has passed.  
 
-Strike-worthy offenses during the job search curriculum include (but are not limited to) failure to respond to emails from your career coach, missing roll call, missing deadlines set by your career coach, and moving out of the job search area (SF or NYC) without the approval of your coach.  Your strike count will reduce by 1 strike each week during the job search curriculum; accruing 5 strikes is grounds for App Academy to change your tuition model to a flat-rate $18,000 rather than 18% of your first year's salary. 
+Strike-worthy offenses during the job search curriculum include (but are not limited to) failure to respond to emails from your career coach, missing roll call, missing deadlines set by your career coach, and leaving the job search area (SF or NYC) without the approval of your coach.  Your strike count will reduce by 1 strike each week during the job search curriculum; accruing 5 strikes is grounds for App Academy to change your tuition model to a flat-rate fee of $18,000 rather than 18% of your first year's salary. 
 
 ## Principle #2: Respect for Others 
 
@@ -32,7 +32,9 @@ App Academy strives to provide an environment that is safe and supportive for al
 
 #### Guidelines for Respectful Behavior 
 
-1. **Treat your coding partners with professionality.**  You will spend the vast majority of your time at App Academy pair programming, usually with a new partner each day.  You may not like each person you work with; you won't want to be friends with each and every one of your coding partners.  However, you are expected to treat each other with the same professionalism you would treat a colleague in the workplace.  If you encounter conflict, we expect you to address it in a mature, respectful way, just as you would on the job.  If you find yourself unable to come to a resolution, App Academy TAs and instructors can act as mediators -- however, we encourage you to view difficult partner experiences as practice for the professional world, and make every effort to come to a consensus before getting staff involved. 
+1. **Treat your coding partners with professionality.**  You will spend the vast majority of your time at App Academy pair programming, usually with a new partner each day.  You may not like each person you work with; you won't want to be friends with each and every one of your coding partners.  However, you are expected to treat each other with the same professionalism you would treat a colleague in the workplace.  
+
+If you encounter conflict, we expect you to address it in a mature, respectful way, just as you would on the job.  If you find yourself unable to come to a resolution, App Academy TAs and instructors can act as mediators -- however, we encourage you to view difficult partner experiences as practice for the professional world, and make every effort to come to a consensus before getting staff involved. 
 
 2. **Take feedback with grace.**  In the intense App Academy environment, all of our flaws and bad habits tend to surface.  If a fellow student or a staff member points out an area in which you can improve either technically or interpersonally, we expect that you will listen with open ears and incorporate this feedback into your work and behavior as best as possible.  Defensiveness is not productive and has no place at App Academy.  We encourage you to view these moments as challenges to be faced head-on; constructive feedback is a gift to you and gives you a chance to reflect and improve.  
 
@@ -49,11 +51,14 @@ App Academy strives to provide an environment that is safe and supportive for al
 App Academy is dedicated to creating a space that is supportive for all members of our community, regardless of their gender, race, religion, national origin, body size or shape, trans status, sexual orientation, disability status, or any other personal characteristic that may marginalize them in some way.  A key piece of creating this space is to actively address any harassment that arises.  Harassment can take many forms, including:
 
 1. **Physical and sexual harassment.**  Physical harassment includes violence towards another person such as shoving, punching, or aggressively invading another's personal space.  Sexual harassment includes non-consensual sexual comments, touching, sexual advances, and stalking behavior (regardless of the genders of the harasser and the harassee).  Additionally, overtly sexual images, jokes, or discussions constitute sexual harassment, even if the behavior is not directed toward a particular individual.  Physical and sexual harassment has no place at App Academy and is grounds for immediate dismissal from the program.
+
 2. **Overt verbal harassment.**  This includes insulting another person, aggressively cursing at another person (i.e., not just including a curse word in your speech, but attacking another with these words), and using your words to demean another person.  Using racial epithets, slurs directed at a marginalized group (such as "faggot" or "retard"), or other language meant to demean another person based on their status in a marginalized group is also considered overt verbal harassment.  Depending on the severity of the offense, verbal harassment may either be grounds for dismissal or, in less serious cases, may require intervention as outlined in the Resolution Process below.
+
 3. **Implicit verbal harassment ("microaggressions").**  This type of harassment is harder to pinpoint, but can be just as damaging, particularly if it occurs many times over.  Implicit verbal harassment, sometimes referred to as a microaggression against a particular community or group, results when one person has an unaddressed, internalized bias against a marginalized group such as women, people of color, queer people, etc., and interacts with a member of that group in a subtly derogatory way.  Some examples of microaggressions include:
   - Being less willing to consider the ideas of your female coding partners, because you view them (perhaps unconsciously) as less skilled
   - Using the wrong name or pronoun for a transgender person 
   - Making assumptions about a person's ability or interests based on their race ("You're Asian, so you must be smart.", e.g.)
+  
 By their nature, microaggressions are subtle and sometimes even well-meaning.  However, to create a community that is truly inclusive of everyone, it is important for all a/A staff, students, and alumni to confront the biases that lead to these microaggressions.  Reports of implicit verbal harassment will be addressed promptly using the App Academy Resolution Process, outlined below.
 
 #### The Resolution Process 
