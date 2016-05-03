@@ -61,7 +61,7 @@ will have an answer.
 
 For a faster response, 1-on-1 tutoring is available.  We have to charge for the service because we tutor other students, but we'd like to make it available to you as well.
 
-You can sign up [here][https://aa-tutoring.youcanbook.me/index.jsp].
+You can sign up [here](https://aa-tutoring.youcanbook.me/index.jsp).
 
 ## Slack
 
