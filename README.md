@@ -57,6 +57,12 @@ will have an answer.
 
 [piazza]: https://piazza.com/appacademy.io/spring2016/aa101/home
 
+## Tutoring
+
+For a faster response, 1-on-1 tutoring is available.  We have to charge for the service because we tutor other students, but we'd like to make it available to you as well.
+
+You can sign up [here][https://aa-tutoring.youcanbook.me/index.jsp].
+
 ## Slack
 
 Slack is a chat client similar to IRC. It supports public and private
