@@ -28,7 +28,9 @@ Strike-worthy offenses during the job search curriculum include (but are not lim
 
 ## Principle #2: Respect for Others 
 
-App Academy strives to provide an environment that is safe and supportive for all students.  As a part of the a/A community, we expect that you will help to create such an environment for your peers.  Creating such a space is simultaneously simple and complex; the core principle of respect for every other person in this space is what should guide your behavior.  At times, it may not be clear to you how to best act out that respect.  We ask that all students mold their behavior and words to the following guidelines:
+App Academy strives to provide an environment that is safe and supportive for all students.  As a part of the a/A community, we expect that you will help to create such an environment for your peers.  Creating such a space is simultaneously simple and complex; the core principle of respect for every other person in this space is what should guide your behavior.  At times, it may not be clear to you how to best act out that respect.  We ask that all students mold their behavior and words to the following guidelines.
+
+#### Guidelines for Respectful Behavior 
 
 1. **Treat your coding partners with professionality.**  You will spend the vast majority of your time at App Academy pair programming, usually with a new partner each day.  You may not like each person you work with; you won't want to be friends with each and every one of your coding partners.  However, you are expected to treat each other with the same professionalism you would treat a colleague in the workplace.  If you encounter conflict, we expect you to address it in a mature, respectful way, just as you would on the job.  If you find yourself unable to come to a resolution, App Academy TAs and instructors can act as mediators -- however, we encourage you to view difficult partner experiences as practice for the professional world, and make every effort to come to a consensus before getting staff involved. 
 
@@ -42,6 +44,16 @@ App Academy strives to provide an environment that is safe and supportive for al
 
 6. **Treat every member of the a/A community with a high level of respect, as you would want to be treated.**  All members of our community -- staff, students, and alumni -- are expected to treat all others in the community respectfully, regardless of their backgrounds, performance in the course, interpersonal conflicts that may have arisen in the past, or any personal characteristics such as gender, race, sexual orientation, trans status, religion, national origin, body size or shape, or disability status.  For more detail on this, see the a/A Anti-Harassment Policy below.
 
-### The a/A Anti-Harassment Policy 
+#### The a/A Anti-Harassment Policy 
 
+App Academy is dedicated to creating a space that is supportive for all members of our community, regardless of their gender, race, religion, national origin, body size or shape, trans status, sexual orientation, disability status, or any other personal characteristic that may marginalize them in some way.  A key piece of creating this space is to actively address any harassment that arises.  Harassment can take many forms, including:
+
+1. **Physical and sexual harassment.**  Physical harassment includes violence towards another person such as shoving, punching, or aggressively invading another's personal space.  Sexual harassment includes non-consensual sexual comments, touching, sexual advances, and stalking behavior (regardless of the genders of the harasser and the harassee).  Additionally, overtly sexual images, jokes, or discussions constitute sexual harassment, even if the behavior is not directed toward a particular individual.  Physical and sexual harassment has no place at App Academy and is grounds for immediate dismissal from the program.
+2. **Overt verbal harassment.**  This includes insulting another person, aggressively cursing at another person (i.e., not just including a curse word in your speech, but attacking another with these words), and using your words to demean another person.  Using racial epithets, slurs directed at a marginalized group (such as "faggot" or "retard"), or other language meant to demean another person based on their status in a marginalized group is also considered overt verbal harassment.  Depending on the severity of the offense, verbal harassment may either be grounds for dismissal or, in less serious cases, may require intervention as outlined in the Resolution Process below.
+3. **Implicit verbal harassment ("microaggressions").**  This type of harassment is harder to pinpoint, but can be just as damaging, particularly if it occurs many times over.  Implicit verbal harassment, sometimes referred to as a microaggression against a particular community or group, results when one person has an unaddressed, internalized bias against a marginalized group such as women, people of color, queer people, etc., and interacts with a member of that group in a subtly derogatory way.  Some examples of microaggressions include:
+- Being less willing to consider the ideas of your female coding partners, because you view them (perhaps unconsciously) as less skilled
+- Using the wrong name or pronoun for a transgender person 
+- Making assumptions about a person's ability or interests based on their race ("You're Asian, so you must be smart.", e.g.)
+
+By their nature, microaggressions are subtle and sometimes even well-meaning.  However, to create a community that is truly inclusive of everyone, it is important for all a/A staff, students, and alumni to confront the biases that lead to these microaggressions.  [tbc..]
 ### The Resolution Process 
