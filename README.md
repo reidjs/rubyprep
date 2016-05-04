@@ -59,9 +59,12 @@ will have an answer.
 
 ## Tutoring
 
-For a faster response, 1-on-1 tutoring is available.  We have to charge for the service because we tutor other students, but we'd like to make it available to you as well.
+1-on-1 tutoring is available if you need it. Because we don't have the bandwidth to help everyone 1-on-1 during the prep work, we do have to charge for the service.
 
-You can sign up [here](https://aa-tutoring.youcanbook.me/index.jsp).
+Tutoring is not required to pass the prep work and we don't expect most students to sign up for it. Some students have found it helpful in the past and we want to give you the option.
+
+
+You can sign up [here](www.appacademy.io/students/tutoring?utm_source=main_course_prep_work).
 
 ## Slack
 
