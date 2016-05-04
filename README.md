@@ -63,7 +63,6 @@ will have an answer.
 
 Tutoring is not required to pass the prep work and we don't expect most students to sign up for it. Some students have found it helpful in the past and we want to give you the option.
 
-
 You can sign up [here](http://www.appacademy.io/students/tutoring?utm_source=main_course_prep_work).
 
 ## Slack
