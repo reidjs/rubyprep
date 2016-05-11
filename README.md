@@ -57,6 +57,14 @@ will have an answer.
 
 [piazza]: https://piazza.com/appacademy.io/spring2016/aa101/home
 
+## Tutoring
+
+App Academy runs a separate code tutoring program and some students have found it helpful to take sessions with us. Our tutors can help you if you get stuck with the prep work. We want to stress that tutoring is not required to complete the prep work.
+
+Because we don't have the bandwidth to help everyone 1-on-1 during the prep work, we do have to charge for the service. Some students have found it helpful in the past and we want to give you the option.
+
+You can sign up [here](http://www.appacademy.io/students/tutoring?utm_source=main_course_prep_work).
+
 ## Slack
 
 Slack is a chat client similar to IRC. It supports public and private
