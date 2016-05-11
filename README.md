@@ -59,9 +59,9 @@ will have an answer.
 
 ## Tutoring
 
-1-on-1 tutoring is available if you need it. Because we don't have the bandwidth to help everyone 1-on-1 during the prep work, we do have to charge for the service.
+App Academy runs a separate code tutoring program and some students have found it helpful to take sessions with us. Our tutors can help you if you get stuck with the prep work. We want to stress that tutoring is not required to complete the prep work.
 
-Tutoring is not required to pass the prep work and we don't expect most students to sign up for it. Some students have found it helpful in the past and we want to give you the option.
+Because we don't have the bandwidth to help everyone 1-on-1 during the prep work, we do have to charge for the service. Some students have found it helpful in the past and we want to give you the option.
 
 You can sign up [here](http://www.appacademy.io/students/tutoring?utm_source=main_course_prep_work).
 
