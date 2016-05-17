@@ -102,6 +102,13 @@ the zipfile (`.zip`) to **admin@appacademy.io** with the subject line
 **NB:** If you've been _conditionally accepted_, you must submit the
 prep work to us before you can schedule your final interview!
 
+## Next Steps
+
+Once you finish, check out the [list of suggestions][extra-preparation]
+for how you can use the extra time to prepare yourself for the cohort.
+
+[extra-preparation]: ./extra-preparation.md
+
 ## Assessments
 
 Once your cohort begins, we will give assessments throughout the course,
