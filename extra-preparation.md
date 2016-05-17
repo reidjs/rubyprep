@@ -41,5 +41,5 @@ the most important topics first.
 These are _suggestions_ for extra preparation. Please don't take them as
 prescriptive. Adapt them to your needs.
 
-[fundamentals]: https://github.com/appacademy/appacademy-prep/blob/master/w0/readings/fundamentals.md
+[fundamentals]: ./w0/readings/fundamentals.md
 [extra-practice]: http://prepwork.appacademy.io/pre-course/additional-practice/
