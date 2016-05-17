@@ -46,8 +46,8 @@ When you get stuck, you may need to look some things up. This is a
 normal part of writing code. Good resources include Google and Stack
 Overflow as well as [Piazza][piazza] and [Slack][prep-course-slack]. Try
 not to use the solutions as a resource. If you find that you're having
-to peek at them in order to get it, you should go back and review until
-you can tackle the problems on your own.
+to peek at them in order to finish the problems, you should go back and
+review until you can tackle the problems on your own.
 
 Remember that this isn't a race. Your goal is understanding, not rote
 completion. Stay in the _zone_.
