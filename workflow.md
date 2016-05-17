@@ -39,10 +39,15 @@ if they are, you should read those too.
 ### Step 2: Complete the Exercises
 
 Work through the exercises and projects in the order presented. Don't
-worry if the material is difficult or you get stuck&mdash;looking things
-up is a normal and necessary part of writing code. Good resources
-include Google and Stack Overflow along with your TAs and classmates on
-[Slack][prep-course-slack].
+worry if the material is difficult or you get stuck. Struggling forms
+mental connections that make you a better coder.
+
+When you get stuck, you may need to look some things up. This is a
+normal part of writing code. Good resources include Google and Stack
+Overflow as well as [Piazza][piazza] and [Slack][prep-course-slack]. Try
+not to use the solutions as a resource. If you find that you're having
+to peek at them in order to get it, you should go back and review until
+you can tackle the problems on your own.
 
 Remember that this isn't a race. Your goal is understanding, not rote
 completion. Stay in the _zone_.
@@ -63,13 +68,14 @@ yourself time for the next step...
 
 ### Step 4: Read the Solutions
 
-The best way to learn how to write good code is to read good code, so
-this step is critical.
+After you finish your own implementation and spend a little time
+refactoring, look at the solutions. You should _always_ set aside time
+for this step.
 
-You should finish your own implementation and spend a little time
-refactoring before you look at the solutions. Be sure not to _peek
-ahead_; the concepts in the solutions will stick much better after
-you've struggled through them yourself first.
+Learning to write code is actually similar to learning other forms of
+writing like essays or poems. The more good literature you read, the
+better the writer you'll become. Likewise, the more good code you read,
+the better the coder you'll become.
 
 ### Step 5: Give Feedback
 
@@ -78,4 +84,5 @@ organization of the material and the effectiveness of instruction. We're
 constantly working to fine-tune our curriculum, so please fill out the
 feedback form to help us do this. Thanks!
 
+[piazza]: https://piazza.com/appacademy.io/spring2016/aa101/home
 [prep-course-slack]: https://app-academy-prep.slack.com/
