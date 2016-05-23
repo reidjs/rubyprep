@@ -36,10 +36,10 @@ completed each weeknight. This should require 2-3 hours per day of
 material.
 
 Before this, however, there is another set of assignments labeled
-"week0". These are some introductory readings and tasks that will need
-to be completed before you move on to week 1.
+"week0". These are some introductory readings and tasks that you should
+do before moving on to week 1.
 
-Ideally, you will complete this in the 5-weeknights-for-4-weeks schedule
+Ideally, you will complete this in the 4-weeknights-for-4-weeks schedule
 we have designed, but we recognize that many of your schedules do not
 look like this. Whatever your schedule, be sure to follow the [daily
 workflow][workflow] for each discreet "day" of the curriculum you
@@ -94,10 +94,11 @@ can also open and close multi-line code blocks like this:
 
 ## Prepwork Submission
 
-You will be required to submit your completed prepwork before your
-cohort begins. Once you are finished, please zip up the files and email
-the zipfile (`.zip`) to **admin@appacademy.io** with the subject line
-"`completed prepwork`". This file should include your _résumé_.
+You will be required to submit your completed prepwork on the Wednesday
+before your cohort begins. Once you are finished, please zip up the
+files and email the zipfile (`.zip`) to **admin@appacademy.io** with the
+subject line "`completed prepwork`". This file should include your
+_résumé_.
 
 **NB:** If you've been _conditionally accepted_, you must submit the
 prep work to us before you can schedule your final interview!
