@@ -21,7 +21,7 @@ like this:
 
 ![Creating a workspace](images/create_workspace.png)
 
-Name your workspace "appacademy-prep" and choose the **Custom** option.
+Name your workspace "appacademy-prep" and choose the **Blank** option.
 Once you've filled out the form, click the "Create" button below. You
 can enter the workspace by selecting it from the menu on the left and
 then clicking the "Start Editing" button.
