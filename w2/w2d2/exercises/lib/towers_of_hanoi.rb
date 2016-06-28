@@ -11,7 +11,7 @@
 # You'll want a `#play` method. In a loop, prompt the user using puts. Ask what
 # pile to select a disc from. The pile should be the index of a tower in your
 # `@towers` array. Use gets
-# (http://andreacfm.com/2011/06/11/learning-ruby-gets-and-chomp/) to get an
+# (http://andreacfm.com/2011/06/11/learning-ruby-gets-and-chomp.html) to get an
 # answer. Similarly, find out which pile the user wants to move the disc to.
 # Next, you'll want to do different things depending on whether or not the move
 # is valid. Finally, if they have succeeded in moving all of the discs to

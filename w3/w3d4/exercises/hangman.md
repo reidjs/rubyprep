@@ -48,10 +48,10 @@ Here are some methods of both `HumanPlayer` and `ComputerPlayer` that
 I implemented:
 
 * `pick_secret_word`
-* `receive_secret_length`
+* `register_secret_length`
 * `guess`
 * `check_guess`
-* `handle_guess_response`
+* `handle_response`
 
 ## Phase III: Computer Guesses Intelligently
 

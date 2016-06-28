@@ -33,7 +33,7 @@ reflect the opinions of App Academy, Major League Baseball, the U.S. government,
     - If it says `sudo: rvm: command not found`, that's fine.
   - `sudo rm -rf ~/.rvm`
   - `brew ls --versions rbenv`
-    - If the `brew` command doesn't work, you must first [install Homebrew] (brew.sh)     
+    - If the `brew` command doesn't work, you must first [install Homebrew](http://brew.sh)     
 3. If nothing shows up after you run "brew ls --versions rbenv", copy, paste, and run the following:
   - `brew install rbenv`
   - `brew install ruby-build`
