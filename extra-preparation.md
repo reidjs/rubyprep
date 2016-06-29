@@ -23,10 +23,10 @@ So you're done with the Prep Course curriculum. Now what?
   should be able to use the error message and stack trace to isolate the
   problem.
 
-6. Putting yourself out there and establishing connections are important
-  skills when it comes to finding a job. Try to find events in your area
-  about Ruby, JavaScript, and other tech topics where you can meet
-  others in the field you are entering.
+6. **Go to meetups.** Putting yourself out there and establishing
+  connections are important skills when it comes to finding a job. Try
+  to find events in your area about Ruby, JavaScript, and other tech
+  topics where you can meet others in the field you are entering.
   [Meetup.com](http://www.meetup.com/) is a great place to start.
 
 ## Extra Topics
