@@ -50,8 +50,8 @@ reflect the opinions of App Academy, Major League Baseball, the U.S. government,
   ```
   - Save and quit.
 6. Copy, paste, and run:
-  - `rbenv install 2.1.2`
-  - `rbenv global 2.1.2`
+  - `rbenv install 2.3.1`
+  - `rbenv global 2.3.1`
 
 
 Try running a ruby program to test!
