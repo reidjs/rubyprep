@@ -21,13 +21,13 @@ class Board
   end
 
   def [](pos)
-    x, y = pos
-    grid[x][y]
+    row, col = pos
+    grid[row][col]
   end
 
   def []=(pos, val)
-    x, y = pos
-    grid[x][y] = val
+    row, col = pos
+    grid[row][col] = val
   end
 
   def count
