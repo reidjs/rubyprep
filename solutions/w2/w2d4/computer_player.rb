@@ -10,7 +10,8 @@ class ComputerPlayer
     moves = []
     (0..2).each do |row|
       (0..2).each do |col|
-        moves << [row, col] if board[row, col].nil?
+        pos = [row, col]
+        moves << pos if board[pos].nil?
       end
     end
 
@@ -22,12 +23,12 @@ class ComputerPlayer
   end
 
   def wins?(move)
-    board[*move] = mark
+    board[move] = mark
     if board.winner == mark
-      board[*move] = nil
+      board[move] = nil
       true
     else
-      board[*move] = nil
+      board[move] = nil
       false
     end
   end
