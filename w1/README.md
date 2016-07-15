@@ -22,7 +22,7 @@ the provided solutions before you proceed to the next day's work.
 - [Objects][objects]
 - [Arrays][arrays]
 - [Strings][strings]
-- [How to Run RSpec Tests][rspec]
+- [Testing Your Code][rspec]
 
 [methods]: ./w1d1/readings/method.md
 [objects]: ./w1d1/readings/object.md
