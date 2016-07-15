@@ -1,9 +1,9 @@
 # Week 1: Basic Object-Oriented Programming
 
-This week's coursework will teach you the basic building blocks of Ruby...
-something.... By the end of the week, you should know how to work with all
-of Ruby's basic data types, and should understand the fundamentals of working
-with classes.
+This week's coursework will teach you the basic building blocks of Ruby.
+By the end of the week, you should know how to manipulate Ruby's basic
+data types, and understand the fundamentals of working with classes. You
+should also know how to keep your code clean and readable.
 
 Before you begin, make sure to review the [daily workflow][workflow]. Complete
 the readings, work through the exercises, refactor your code, and make sure
