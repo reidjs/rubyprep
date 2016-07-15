@@ -5,11 +5,15 @@ By the end of the week, you should know how to manipulate Ruby's basic
 data types, and understand the fundamentals of working with classes. You
 should also know how to keep your code clean and readable.
 
-Before you begin, make sure to review the [daily workflow][workflow]. Complete
-the readings, work through the exercises, refactor your code, and make sure
-you understand the provided solutions before you continue.
+Before you begin, make sure you have your [environment][environment]
+set up appropriately.
+
+Also review the [daily workflow][workflow]. Complete the readings, work
+through the exercises, refactor your code, and make sure you understand
+the provided solutions before you proceed to the next day's work.
 
 [workflow]: ./../workflow.md
+[environment]: ./../w0/environment-setup.md
 
 ### Monday: Arrays, Strings, and Objects
 
