@@ -77,6 +77,3 @@ to the filename argument:
 ```sh
 ~$ bundle exec rspec spec/00_hello_spec.rb:105
 ```
-
-And that's all there is to it. Armed with this knowledge, go forth and
-complete the exercises!
