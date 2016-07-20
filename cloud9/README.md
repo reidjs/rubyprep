@@ -44,6 +44,9 @@ Once you've entered the workspace, the basic workflow will be:
 0. Write your Ruby code in the text editor, top and center.
 0. Run your code in the terminal at the bottom.
 
+All of the readings in this repo are markdown files (.md). If you'd like
+to read them in Cloud9, right-click them and select "Preview".
+
 The terminal behaves almost exactly as it would on a Mac. You can
 install gems and run the programs you've written with commands like
 `ruby hello_world.rb` This will allow you to see any output and error
