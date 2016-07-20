@@ -17,7 +17,7 @@ The minimum requirements are:
   [Mozilla Firefox][firefox] is also acceptable).
 * an active [Github][github] account.
 * an active [Cloud9][cloud9] account, linked with your Github account.
-  * Refer to our [setup instructions][c9-setup]
+  * Refer to our Cloud9 [setup instructions][c9-setup]
 * an active [Slack](#slack) account (don't set this up until we send you
   an invitation to the App Academy team). You can either download the
   Slack client or simply use their browser app.
