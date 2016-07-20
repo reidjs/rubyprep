@@ -28,12 +28,13 @@ and you should see a list of all your Github repos. If you don't, ensure that
 you connected Cloud9 to your Github account properly.
 
 On the repositories page, find "appacademy-prep" and click "Clone to Edit".
-You should see something like this:
+You should then see something like this:
 
 ![Creating a workspace](images/create_workspace.png)
 
 Name your workspace "appacademy-prep" and choose the **Blank** option.
-Once you've filled out the form, click the "Create" button below. Your workspace will look something like this:
+Once you've filled out the form, click the "Create workspace" button below.
+Your workspace will look something like this:
 
 ![Full IDE](images/full_ide.png)
 
