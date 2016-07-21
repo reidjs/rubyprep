@@ -23,7 +23,7 @@ going to Settings > [Connected Services][services].
 ### Creating your workspace
 
 Once you've integrated your Github account with Cloud9, it's super easy
-to get your workspace set up. Go to you [Repositories][repos] page,
+to get your workspace set up. Go to your [Repositories][repos] page,
 and you should see a list of all your Github repos. If you don't, ensure that
 you connected Cloud9 to your Github account properly.
 
