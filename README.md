@@ -3,6 +3,13 @@
 The information in this syllabus is vital to your success in the
 Prep Course and the main curriculum, so please read it carefully.
 
+## Quick Links
+
+* [Daily Feedback Form][feedback-form-ny-2016-02-08]
+* [Environment Setup][env]
+* [Daily Workflow][workflow]
+* [Assignments](#assignments)
+
 ## Summary
 
 The App Academy program is very fast-paced. If you don't have a certain
