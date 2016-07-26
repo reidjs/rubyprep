@@ -32,9 +32,9 @@ there.
 
 ### Step 1: Do the Readings
 
-Read the day's readings before starting the assignment. Instructions
-for the day's exercises may not be available ahead of time; but
-if they are, you should read those too.
+Read the day's readings before starting the assignment. These will cover
+the core concepts in the day's exercises, and are important to your
+understanding of the material.
 
 ### Step 2: Complete the Exercises
 
@@ -82,7 +82,8 @@ the better the coder you'll become.
 At the end of each day, you will be asked to give feedback on the
 organization of the material and the effectiveness of instruction. We're
 constantly working to fine-tune our curriculum, so please fill out the
-feedback form to help us do this. Thanks!
+[feedback form][feedback-form] to help us do this. Thanks!
 
 [piazza]: https://piazza.com/appacademy.io/spring2016/aa101/home
 [prep-course-slack]: https://app-academy-prep.slack.com/
+[feedback-form]: https://docs.google.com/forms/d/1z5Vc9tIRRh6_k3DhVaokz4vm9mRVjelB8fUGJRU28ls/viewform

@@ -196,7 +196,7 @@ use `<<` (shovel) or `push`; to pop an element from an array, use the
 `pop` method. Using Array's `push` and `pop`, we can treat an array
 like a [*stack*][so-stack], a data type that helps us solve problems
 that have LIFO features. One such problem is reverse polish
-calculation (remember the RPN calculator from Test First Ruby?):
+calculation:
 
 [so-stack]: http://stackoverflow.com/questions/3825050/what-do-push-and-pop-mean-for-stacks#answer-3825329
 
