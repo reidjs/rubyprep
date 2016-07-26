@@ -6,13 +6,15 @@ data types, and understand the fundamentals of working with classes. You
 should also know how to keep your code clean and readable.
 
 Before you begin, make sure you have your [environment][environment]
-set up appropriately.
+set up appropriately. The [Cloud9][c9] reading has instructions for
+downloading the exercises through Github.
 
 Also review the [daily workflow][workflow]. Complete the readings, work
 through the exercises, refactor your code, and make sure you understand
 the provided solutions before you proceed to the next day's work.
 
 [workflow]: ./../workflow.md
+[c9]: ./../cloud9
 [environment]: ./../w0/environment-setup.md
 
 ### Monday: Arrays, Strings, and Objects
