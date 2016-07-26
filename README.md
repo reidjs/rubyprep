@@ -8,7 +8,7 @@ Prep Course and the main curriculum, so please read it carefully.
 * [Daily Feedback Form][feedback-form-ny-2016-02-08]
 * [Environment Setup][env]
 * [Daily Workflow][workflow]
-* [Assignments](#assignments)
+* [Assignments](#getting-started)
 
 ## Summary
 
@@ -59,7 +59,7 @@ assessment; it will **not** count against you if you fail it, but you
 should use it to assess your own understanding of the material and to
 help prepare for future assessments.
 
-## Getting Started<a name="assignments"></a>
+## Getting Started
 
 All right, let's get to it!
 
