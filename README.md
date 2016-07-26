@@ -5,10 +5,14 @@ Prep Course and the main curriculum, so please read it carefully.
 
 ## Quick Links
 
-* [Daily Feedback Form][feedback-form-ny-2016-02-08]
+* [Daily Feedback Form][feedback-form]
 * [Environment Setup][env]
 * [Daily Workflow][workflow]
 * [Assignments](#getting-started)
+
+
+[feedback-form]: https://docs.google.com/forms/d/1z5Vc9tIRRh6_k3DhVaokz4vm9mRVjelB8fUGJRU28ls/viewform
+
 
 ## Summary
 
