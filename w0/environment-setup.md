@@ -5,7 +5,7 @@ that you make sure that you have the tools to:
 * Write and run Ruby code
 * Communicate and collaborate with classmates and instructional staff
 
-## Programming In the Cloud
+## Programming in the Cloud
 
 You can get through the App Academy Prep work using only a web browser.
 A lot of the hassle of configuration is taken care of automatically by
@@ -22,9 +22,11 @@ The minimum requirements are:
   an invitation to the App Academy team). You can either download the
   Slack client or simply use their browser app.
 
-Also make sure you have all the exercises downloaded. If
-you're working with Cloud9, the setup instructions are in the reading
-above; if you're working locally, you can enter
+## Accessing the Exercises
+
+You should also have all the  exercises downloaded. If you're working
+with Cloud9, the setup instructions are in the reading above; if you're
+working locally, you can enter
 `git clone https://github.com/appacademy/appacademy-prep.git`
 into your terminal to copy this repository.
 
