@@ -1,26 +1,28 @@
 # Week 0: Getting Started
 
+### Switching to Ruby
+This course will require you to work in Ruby. If you have a programming
+background in a different language, make sure you are familiar with Ruby
+before getting started. We recommend JumpstartLabs's Ruby in 100 Minutes as a quick way
+to get up to speed.
+- [Ruby in 100 Minutes][jumpstart-ruby]
+
+### Review Materials
+Make sure you are familiar with all the material from the coding challenge
+prep work.
+- [Coding Challenge Prep][prep2]
+
 ### Required Readings
 - [Fundamentals][fundamentals]
-- [Source Files][source-files]
-- [Writing a Script][writing-a-script]
+  - How to work in a programming environment
 - Peter Cooper's [Beginning Ruby][beginning-ruby]
-  - Your primary resource for learning Ruby.
-  - ch1-4
-  - ch6 (skip ch5)
-  - Just RubyGems (pg. 168-175 in the second edition) from ch7
-  - Just Testing (pg. 192-196 in the second edition) from ch8
-- JumpstartLabs' [Ruby in 100 Minutes][jumpstart-ruby]
-  - Another intro to Ruby with a lot of good intro exercises.
-- Chris Pine's [Learn to Program][learn-to-program]
-  - ch1-ch10.
-  - There are a few exercises at the end of each chapter under the
-    heading, "A Few Things to Try". Do these for practice, but you
-    don't have to submit them to us.
+  - Chapters 2-4 only
 - Ruby Monk's [Ruby Primer][ruby-monk]
-  - An interactive introduction to Ruby.
-  - [Machine Setup][machine-setup]
+  - Interactive introduction to Ruby
+- [Ruby in 100 Minutes][jumpstart-ruby]
+  - Comprehensive overview of Ruby
 
+[prep2]: http://prepwork.appacademy.io/coding-test-2/
 [fundamentals]: ./readings/fundamentals.md
 [source-files]: ./readings/source-files.md
 [writing-a-script]: ./readings/writing-a-script.md
@@ -28,5 +30,5 @@
 [beginning-ruby]: http://beginningruby.org/
 [cli-hard-way]: http://cli.learncodethehardway.org/book/
 [jumpstart-ruby]: http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html
-[learn-to-program]: http://filepi.com/i/kF0llED
+[learn-to-program]: https://pine.fm/LearnToProgram/
 [ruby-monk]: http://rubymonk.com/learning/books/1

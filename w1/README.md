@@ -43,12 +43,14 @@ the provided solutions before you proceed to the next day's work.
 
 #### Readings
 - [Blocks][blocks]
+- [Chapter 10][pine10] of Chris Pine's Learn to Program (Blocks and Procs)
 - [Iteration][iteration]
 - [Enumerables][enumerables]
 
 [blocks]: ./w1d2/readings/block.md
 [iteration]: ./w1d2/readings/iteration.md
 [enumerables]: ./w1d2/readings/enumerable.md
+[pine10]: https://pine.fm/LearnToProgram/chap_10.html
 
 #### Exercises
 - [(Download)][w1d2-exercises]
