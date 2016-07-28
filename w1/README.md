@@ -28,7 +28,7 @@ the provided solutions before you proceed to the next day's work.
 [objects]: ./w1d1/readings/object.md
 [arrays]: ./w1d1/readings/array.md
 [strings]: ./w1d1/readings/string.md
-[rspec]: ./w1d1/readings/rspec.md
+[rspec]: ./w1d1/readings/installing_rspec.md
 
 ## Tuesday: Blocks and Iteration
 
