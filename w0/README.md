@@ -24,11 +24,7 @@ prep work.
 
 [prep2]: http://prepwork.appacademy.io/coding-test-2/
 [fundamentals]: ./readings/fundamentals.md
-[source-files]: ./readings/source-files.md
-[writing-a-script]: ./readings/writing-a-script.md
-[machine-setup]: ./environment-setup.md
 [beginning-ruby]: http://beginningruby.org/
-[cli-hard-way]: http://cli.learncodethehardway.org/book/
 [jumpstart-ruby]: http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html
 [learn-to-program]: https://pine.fm/LearnToProgram/
 [ruby-monk]: http://rubymonk.com/learning/books/1
