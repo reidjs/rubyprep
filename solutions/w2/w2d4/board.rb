@@ -10,11 +10,13 @@ class Board
     @marks = [:X, :O]
   end
 
-  def [](row, col)
+  def [](pos)
+    row, col = pos
     grid[row][col]
   end
 
-  def []=(row, col, value)
+  def []=(pos, value)
+    row, col = pos
     grid[row][col] = value
   end
 
@@ -55,10 +57,10 @@ class Board
   end
 
   def empty?(pos)
-    self[*pos].nil?
+    self[pos].nil?
   end
 
   def place_mark(pos, mark)
-    self[*pos] = mark
+    self[pos] = mark
   end
 end
