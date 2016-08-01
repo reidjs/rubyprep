@@ -44,14 +44,18 @@ spread it out over multiple sessions or crush through 2 or 3 days at a time.
 
 ## Prepwork Submission
 
-You will be required to submit your completed prepwork on the Wednesday
+You will be required to submit your completed prepwork by the Wednesday
 before your cohort begins. Once you are finished, please zip up the
-files and email the zipfile (`.zip`) to **admin@appacademy.io** with the
-subject line "`completed prepwork`". This file should include your
-_résumé_.
+files. This should include your résumé! Make sure your résumé is
+in the `w4/resume` directory, then navigate to the top-level
+appacademy-prep directory and run `zip -r your_name.zip w1 w2 w3 w4`
+in the terminal. Please replace "your name" with your actual name.
+Download that file and send it in to **admin@appacademy.io** with the
+subject line `completed prepwork`.
 
 **NB:** If you've been _conditionally accepted_, you must submit the
-prep work to us before you can schedule your final interview!
+prep work to us before you can schedule your final interview! No need
+to include your résumé.
 
 ## Assessments
 
