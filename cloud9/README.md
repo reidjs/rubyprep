@@ -23,23 +23,17 @@ going to Settings > [Connected Services][services].
 ### Creating your workspace
 
 Once you've integrated your Github account with Cloud9, it's super easy
-to get your workspace set up. First, on Github, you need to fork this
-repository; that will copy it and add it to your own Github account. Just
-click the "Fork" button in the top right of the appacademy-prep Github
-page. Then you can go to your Cloud9 [Repositories][repos] page, and you
-should see a list of all your Github repos. If you don't, ensure that
-you connected Cloud9 to your Github account properly.
-
-On the repositories page, find "appacademy-prep" and click "Clone to Edit".
-You should then see something like this:
+to get your workspace set up. Head to your Workspaces page, and create
+a new one. You should see something like this:
 
 ![Creating a workspace](images/create_workspace.png)
 
 Name your workspace "appacademy-prep" and choose the **Blank** option.
-Once you've filled out the form, click the "Create workspace" button below.
-Your workspace will look something like this:
-
-![Full IDE](images/full_ide.png)
+Where it says "Clone from Git or Mercurial URL", please enter
+`git@github.com:appacademy/appacademy-prep.git`.
+Once you've filled out the form, click the "Create workspace" button.
+If your new workspace doesn't contain the contents of the repo, ensure
+that you connected Cloud9 to your Github account properly and try again.
 
 Once you've entered the workspace, the basic workflow will be:
 
