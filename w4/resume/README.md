@@ -12,9 +12,9 @@ Read this document in its entirety, and then set about to making your own
 resume. Don't worry if it's not perfect. We'll perfect it once we get to
 the job search curriculum.
 
-**Once you're done with your resume, include it in the prepwork.zip file
-that you send to us!**, with the filename as your first and last name
-(i.e., sally_jones.pdf).
+**Once you're done with your resume, put it in the resume directory**, with
+the filename as your first and last name (i.e., sally_jones.pdf). This will
+ensure that you include it in the prepwork zip file you send to us!
 
 #### We must have your resume on file before you come in on the first day!
 
