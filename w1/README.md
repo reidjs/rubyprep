@@ -17,7 +17,7 @@ the provided solutions before you proceed to the next day's work.
 [c9]: ./../cloud9
 [environment]: ./../w0/environment-setup.md
 
-### Monday: Arrays, Strings, and Objects
+## Monday: Arrays, Strings, and Objects
 
 #### Readings
 - [Methods][methods]
@@ -30,16 +30,9 @@ the provided solutions before you proceed to the next day's work.
 [objects]: ./w1d1/readings/object.md
 [arrays]: ./w1d1/readings/array.md
 [strings]: ./w1d1/readings/string.md
-[rspec]: ./w1d1/readings/rspec.md
+[rspec]: ./w1d1/readings/installing_rspec.md
 
-#### Exercises
-- [(Download)][w1d1-exercises]
-- [Solutions][w1d1-solutions]
-
-[w1d1-exercises]: ./w1d1/w1d1.zip?raw=true
-[w1d1-solutions]: ./../solutions/w1/w1d1
-
-### Tuesday: Blocks and Iteration
+## Tuesday: Blocks and Iteration
 
 #### Readings
 - [Blocks][blocks]
@@ -50,14 +43,7 @@ the provided solutions before you proceed to the next day's work.
 [iteration]: ./w1d2/readings/iteration.md
 [enumerables]: ./w1d2/readings/enumerable.md
 
-#### Exercises
-- [(Download)][w1d2-exercises]
-- [Solutions][w1d2-solutions]
-
-[w1d2-exercises]: ./w1d2/w1d2.zip?raw=true
-[w1d2-solutions]: ./../solutions/w1/w1d2
-
-### Wednesday: Extending Classes
+## Wednesday: Extending Classes
 
 #### Readings
 - [Classes][classes-i]
@@ -66,14 +52,7 @@ the provided solutions before you proceed to the next day's work.
 [classes-i]: ./w1d3/readings/class-i.md
 [hashes]: ./w1d3/readings/hash.md
 
-#### Exercises
-- [(Download)][w1d3-exercises]
-- [Solutions][w1d3-solutions]
-
-[w1d3-exercises]: ./w1d3/w1d3.zip?raw=true
-[w1d3-solutions]: ./../solutions/w1/w1d3
-
-### Thursday: Writing New Classes
+## Thursday: Writing New Classes
 
 #### Readings
 - [Classes][classes-ii]
@@ -82,14 +61,7 @@ the provided solutions before you proceed to the next day's work.
 [classes-ii]: ./w1d4/readings/class-ii.md
 [scope]: ./w1d4/readings/scope.md
 
-#### Exercises
-- [(Download)][w1d4-exercises]
-- [Solutions][w1d4-solutions]
-
-[w1d4-exercises]: ./w1d4/w1d4.zip?raw=true
-[w1d4-solutions]: ./../solutions/w1/w1d4
-
-### Friday/Weekend: Writing Good Code
+## Friday/Weekend: Writing Good Code
 
 #### Videos (required)
 - Refactoring and Code Smells ([video lecture][refactoring-video])
@@ -121,7 +93,7 @@ the provided solutions before you proceed to the next day's work.
   After your review, go back and refactor your previous work. Apply the
   principles you've learned to write the best code you can.
 
-### Bonus
+## Bonus
 - [Project Euler][project-euler] problems
 
 [project-euler]: http://projecteuler.net/
