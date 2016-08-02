@@ -1,9 +1,3 @@
-
-# TODO: Add rspec colorization/formatting to all exercise directories
-
-
-
-
 # Running Rspec Tests
 
 No need to look at any code yet; let's just run some tests and see what
