@@ -24,13 +24,15 @@ the provided solutions before you proceed to the next day's work.
 - [Objects][objects]
 - [Arrays][arrays]
 - [Strings][strings]
-- [Testing Your Code][rspec]
+- [Installing Rspec][rspec1]
+- [Working with Rspec][rspec2]
 
 [methods]: ./w1d1/readings/method.md
 [objects]: ./w1d1/readings/object.md
 [arrays]: ./w1d1/readings/array.md
 [strings]: ./w1d1/readings/string.md
-[rspec]: ./w1d1/readings/installing_rspec.md
+[rspec1]: ./w1d1/readings/installing_rspec.md
+[rspec2]: ./w1d1/readings/running_rspec.md
 
 ## Tuesday: Blocks and Iteration
 

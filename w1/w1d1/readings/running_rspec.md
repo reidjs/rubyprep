@@ -4,8 +4,9 @@ No need to look at any code yet; let's just run some tests and see what
 happens!
 
 First, navigate to the `exercises` directory in your terminal and run
-the command `bundle exec rspec`. This will run ALL of the spec files
-in the project directory.
+the command `bundle exec rspec`. By using `bundle exec`, we tell Bundler
+to run the version of rspec specified in the Gemfile. The `rspec` command
+will run ALL of the spec files in the project directory.
 
 If you got the error `bundle: command not found`, make sure you installed
 rspec as specified in the [previous reading][rspec].
@@ -24,7 +25,7 @@ this time. We can deal with that!
 Let's take a look at the terminal output. At the bottom, you should see
 something like this:
 
-``` bash
+```
 Finished in 0.00186 seconds (files took 0.14132 seconds to load)
 3 examples, 3 failures
 
@@ -40,7 +41,7 @@ and we failed all of them. At the bottom, it specifies which tests we failed.
 This is a nice overview, but if you want to see what actually went wrong, you'll
 have to scroll to the top. You should see this error:
 
-``` bash
+```
 1) the hello function says hello
      Failure/Error: expect(hello).to eq("Hello!")
 
@@ -52,17 +53,18 @@ have to scroll to the top. You should see this error:
 ```
 
 So, what can we tell from this error message?
+
 0. We wanted the `hello` function to say hello.
 0. Specifically, we expected it to return the string `"Hello!"`
 0. It actually returned `"oh hey there"`, giving us a failure
 0. The test itself can be found in the `00_hello_spec.rb` file on line 5
 
 Open up `lib/00_hello.rb`; this is where you'll be writing your code.
-Go ahead and fix up the code, then run the specs again. You shouldn't
-be getting that error message any more! Hopefully, you'll have something
-like this now:
+Go ahead and fix up the code with the correct return value, then run
+the specs again. You shouldn't be getting that error message any more!
+Hopefully, you'll have something like this now:
 
-``` bash
+```
 Finished in 0.00187 seconds (files took 0.13949 seconds to load)
 3 examples, 2 failures
 
@@ -78,7 +80,7 @@ Let's move on to the next specs: Looks like we have two specs for the `greet`
 function that aren't passing. Take a look at the first error; you should see
 something like this:
 
-``` bash
+```
 1) the greet function says hello to someone
    Failure/Error: expect(greet("Alice")).to eq("Hello, Alice!")
    NameError:
@@ -103,7 +105,7 @@ written yet.
 
 Fix that typo, and run the spec again. Do you see success?
 
-``` bash
+```
 the hello function
   says hello
 
@@ -124,24 +126,24 @@ for reference:
 All these commands should be run from the `exercises` folder, or
 whatever your current project directory is.
 
-You'll most often just want run one spec file. Just pass in the file name:
+You'll most often want to run a single spec file. Just pass in the file name:
 
-```sh
+```
 ~$ bundle exec rspec spec/00_hello_spec.rb
 ```
 
-Sometimes it's useful to run just a single spec, or a subgroup of specs.
-This is often the case when working with long, slow test files.
+Sometimes it's useful to run just a single test, or a subgroup of tests.
+This is often the case when working with long, slow spec files.
 To do so, you can append the line number to the filename argument. The
 following code will run both tests within the `describe "the greet function"`
 block in the spec file:
 
-```sh
+```
 ~$ bundle exec rspec spec/00_hello_spec.rb:9
 ```
 
 To run all the specs for a day:
 
-```sh
+```
 ~$ bundle exec rspec
 ```
