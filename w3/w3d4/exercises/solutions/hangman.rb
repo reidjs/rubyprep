@@ -194,5 +194,5 @@ if __FILE__ == $PROGRAM_NAME
     referee = HumanPlayer.new
   end
 
-  Hangman.new(guesser, referee).play
+  Hangman.new({guesser: guesser, referee: referee}).play
 end
