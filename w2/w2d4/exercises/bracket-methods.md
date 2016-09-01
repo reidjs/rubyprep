@@ -93,5 +93,5 @@ Similarly, you can access a position on the grid in the same manner:
 board[pos] #=> :X
 ```
 
-Isn't that nice? That's nice. So much prettier than writing everything out
+Isn't that nice? So much prettier than writing everything out
 the old way.
