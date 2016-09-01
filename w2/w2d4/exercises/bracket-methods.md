@@ -9,10 +9,11 @@ We'll be writing a number of board games over the next couple of weeks.
 Many of these board games are played on a two-dimensional grid. In our
 code, we represent these grids with 2D arrays.
 
-For example, a tic tac toe game board/grid:
+These grids will usually be stored as an instance variable. For example,
+here's a tic tac toe grid:
 
 ```
-grid = [
+@grid = [
   [:X, nil, :O],
   [:X, :O, nil],
   [nil, nil, nil]
@@ -25,17 +26,19 @@ We can easily get the value of the cell at the top-right corner of the
 game board like so:
 
 ```
-grid[0][2] # => :o
+board.grid[0][2] # => :O
 ```
 
 And we can change the value at a position like so:
 
 ```
-grid[2][0] = :x
+board.grid[2][0] = :X
 ```
 
-This works plenty fine. But by defining two special Ruby methods, `[]`
-and `[]=`, we can do a little bit better.
+This works plenty fine. Oftentimes, though, we'll be dealing with a single
+position variable: a mini array of coordinates. For example, `pos = [0, 0]`
+would represent the top left corner. By defining two special Ruby methods,
+`[]` and `[]=`, we can make things a lot cleaner.
 
 ## Special methods: `[]` and `[]=`
 
@@ -50,11 +53,13 @@ class Board
     @grid = Array.new(3) { Array.new(3) }
   end
 
-  def [](row, col)
+  def [](pos)
+    row, col = pos
     @grid[row][col]
   end
 
-  def []=(row, col, mark)
+  def []=(pos, mark)
+    row, col = pos
     @grid[row][col] = mark
   end
 
@@ -62,75 +67,31 @@ class Board
 end
 ```
 
-We can call these methods like so:
+After we set up these methods, we can use them in a couple of ways. First off,
+they can be used just like normal methods; for example, you could say
 
 ```
-board = Board.new
-board.[](2, 0) # returns the bottom-left square
-board.[]=(0, 1, :x) # sets the top-middle square to :x
+# pos = [0, 3]
+board.[](pos, :X)
 ```
 
-But that's uglier than the original way! However, Ruby gives us some
-syntactic sugar that allows us to call the `[]` and `[]=` methods in a
-convenient and non-standard way, a.k.a. "syntactic sugar."
+That's ugly, though, and kinda defeats the whole point.
 
-## The Syntactic Sugar
-
-These are all equivalent ways to get the bottom-left square:
+Ruby gives us some lovely syntactic sugar to work with; the bracket methods
+we wrote work just like the ones on arrays, letting us put parameters inside
+them. So, instead of writing the above, we can say:
 
 ```
-board.grid[2][0]
-board.[](2, 0)
-board[2, 0] # syntactic sugar
+# pos = [0, 3]
+board[pos] = :X
 ```
 
-The syntactic sugar allows us to call the `Board#[]` method with our
-arguments inside of the square brackets themselves rather than in
-parentheses following the square brackets.
-
-Similarly, the following are equivalent ways to set the top-right
-square:
+Similarly, you can access a position on the grid in the same manner:
 
 ```
-board.grid[0][2] = :x
-board.[]=(0, 2, :x)
-board[0, 2] = :x  # syntactic sugar
+# pos = [0, 0]
+board[pos] #=> :X
 ```
 
-Naturally, if we bother to set up the special `[]` and `[]=` methods,
-we'll use the syntactic sugar way. :)
-
-## A Good Time to Splat
-
-We'll often have a variable called `pos` that is a pair of coordinates
-in `[row, col]` format. For example, the bottom-middle tic tac toe
-square corresponds to a `pos` of `[2, 1]`. Suppose we want to get the
-value of that bottom-middle square. We could use our special getter
-method as such:
-
-```
-row, col = pos # destructuring assignment
-board[row, col] # => value of the square at the pos
-```
-
-Better yet, to save ourselves a line of code, we can use the splat
-operator:
-
-```
-board[*pos] # => value of the square at the pos
-```
-
-To explain: if `pos` is `[2, 1]`, then we can't just say `board[pos]`,
-because this would translate into `board[[2, 1]]`, which translates into
-`board.[]([2, 1])`. But this doesn't work, because we defined our
-`Board#[]` method to take *two* arguments (`row, col`), not a single
-array argument.
-
-The **splat operator** effectively takes an array argument and treats it
-as if its elements were each an individual argument. So in our example,
-`board[*[2, 1]]` effectively becomes `board[2, 1]`, which becomes
-`board.[](2, 1)`, which contains two separate arguments, which is just
-what the `Board#[]` method expects.
-
-We can similarly set the value of the grid at a certain pos (for
-example, `board[*pos] = :x`).
+Isn't that nice? That's nice. So much prettier than writing everything out
+the old way.
