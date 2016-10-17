@@ -17,14 +17,14 @@ prep work.
   - How to work in a programming environment
 - Peter Cooper's [Beginning Ruby][beginning-ruby]
   - Chapters 2-4 only
-- Ruby Monk's [Ruby Primer][ruby-monk]
+- CodeAcademy's [Ruby Course][codeacademy]
   - Interactive introduction to Ruby
 - [Ruby in 100 Minutes][jumpstart-ruby]
   - Comprehensive overview of Ruby
 
 [prep2]: http://prepwork.appacademy.io/coding-test-2/
 [fundamentals]: ./readings/fundamentals.md
-[beginning-ruby]: http://beginningruby.org/
+[beginning-ruby]: http://peterc.org/beginningruby/
 [jumpstart-ruby]: http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html
 [learn-to-program]: https://pine.fm/LearnToProgram/
-[ruby-monk]: http://rubymonk.com/learning/books/1
+[codeacademy]: https://www.codecademy.com/learn/ruby
