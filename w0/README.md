@@ -8,6 +8,7 @@ before getting started.
 ### Required Readings
 - [Fundamentals][fundamentals]
   - How to work in a programming environment
+- Peter Cooper's [Beginning Ruby][beginning-ruby] 2<sup>nd</sup> Edition
   - Chapters 2-4 only
 - Codecademy's [free Ruby course][codecademy]
   - Go through [Try Ruby][code-school] if the course is temporarily unavailable
@@ -24,8 +25,8 @@ prep work.
   - Fun and easy-to-read book
 
 [fundamentals]: ./readings/fundamentals.md
-[beginning-ruby]: http://beginningruby.org/
-[codecademy]: https://www.codecademy.com/learn/ruby
+[beginning-ruby]: http://peterc.org/beginningruby/
+[codecademy]: https://www.codecademy.com/learn
 [prep2]: http://prepwork.appacademy.io/coding-test-2/
 [code-school]:https://www.codeschool.com/courses/try-ruby
 [poignant]: http://poignant.guide/book/
