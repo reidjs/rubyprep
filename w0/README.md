@@ -26,7 +26,7 @@ prep work.
 
 [fundamentals]: ./readings/fundamentals.md
 [beginning-ruby]: http://peterc.org/beginningruby/
-[codecademy]: https://www.codecademy.com/learn
+[codecademy]: https://www.codecademy.com/learn/ruby
 [prep2]: http://prepwork.appacademy.io/coding-test-2/
 [code-school]:https://www.codeschool.com/courses/try-ruby
 [poignant]: http://poignant.guide/book/
