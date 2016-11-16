@@ -7,7 +7,7 @@
 ### Solo Project: [Learn JavaScript][codecademy]
 - Introduction to JavaScript through Codecademy
 - Covers syntax, functions, loops, control flow, and data structures
-- This shouldn't take more then 10 hour to complete
+- This shouldn't take more than 10 hours to complete
 - You do not need to pay for a subscription or turn anything in to us.
   You should complete the free portion though.
 
