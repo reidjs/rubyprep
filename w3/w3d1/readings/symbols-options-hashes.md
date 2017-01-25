@@ -13,7 +13,7 @@ used in different contexts.
 You are familiar with `String`s. They represent a sequence of
 characters. When you read text from a file, or the user, you get a
 `String`. When you `puts` an object, it is first converted to a
-`String` (via the `Object#to_s` method) and the written to the
+`String` (via the `Object#to_s` method) and then written to the
 output. You have read about the various methods to concatenate,
 format/interpolate, split, and otherwise manipulate text.
 
@@ -62,7 +62,7 @@ can be tedious (and error-prone) to remember the order of these many
 options. Moreover, many of them may have default values, so a number
 of these may be optional.
 
-As you know, Ruby method arguments are *positional*; they must be
+As you know, Ruby method arguments are *positional*: they must be
 provided in the correct order. But Ruby also has a means to let you
 pass arguments by *name*. An example is more easily understood:
 
@@ -116,7 +116,7 @@ p better_format_url({ host: "www.nytimes.com" })
 
 Hopefully it is clear that the `better_format_url` is more convenient
 and flexible. There's no magic to it: we just pass in a `Hash`, where
-the params are keyed by names. Notice, that when merging, the values
+the params are keyed by names. Notice that, when merging, the values
 in `options` will override the values in `defaults`. Of course, we use
 `Symbol`s for the keys.
 
