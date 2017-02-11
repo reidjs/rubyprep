@@ -37,7 +37,7 @@ should require 15-20 hours a week for 4 weeks to complete, with approximately
 Ideally, you will complete this in the 4-weeknights-for-4-weeks schedule
 we have designed, but we recognize that many of your schedules do not
 look like this. Whatever your schedule, be sure to follow the [daily
-workflow][workflow] for each discreet day of the curriculum, whether you
+workflow][workflow] for each discrete day of the curriculum, whether you
 spread it out over multiple sessions or crush through 2 or 3 days at a time.
 
 [workflow]: ./workflow.md
