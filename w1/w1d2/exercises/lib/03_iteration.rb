@@ -4,6 +4,13 @@
 # factors of a given number.
 
 def factors(num)
+  f = []
+  i = 1
+  while i <= num
+    f << i if num % i == 0
+    i+=1
+  end
+  f
 end
 
 # ### Bubble Sort
@@ -46,13 +53,41 @@ end
 # http://stackoverflow.com/questions/827649/what-is-the-ruby-spaceship-operator
 
 class Array
-  def bubble_sort!
+  # def bubble_sort!
+  #   i = 0
+  #   repeat = false
+  #   while i < self.length - 1
+  #     if self[i] > self[i+1]
+  #       self[i], self[i+1] = self[i+1], self[i]
+  #       repeat = true
+  #     end
+  #     i += 1
+  #   end
+  #   repeat ? self.bubble_sort! : self
+  # end
+  def bubble_sort!(&prc)
+    prc ||= Proc.new{|a, b| a <=> b}
+    #when we call the prc it will return -1 if left is smaller,
+    #0 if equal, and 1 if left is bigger
+    sorted = false
+    while sorted == false
+      sorted = true
+      for i in 0..self.length-2
+        j = i+1
+        if prc.call(self[i], self[j]) == 1
+          self[i], self[j] = self[j], self[i]
+          sorted = false
+        end
+      end
+    end
+    self
   end
-
   def bubble_sort(&prc)
+    sorted = self.dup
+    sorted.bubble_sort!
   end
 end
-
+# p [4,3,2,5,8, 10].bubble_sort
 # ### Substrings and Subwords
 #
 # Write a method, `substrings`, that will take a `String` and return an
@@ -67,16 +102,38 @@ end
 # words).
 
 def substrings(string)
+  s = 0
+  e = 0
+  substrings = []
+  while e <= string.length
+    # p string[s..e]
+    substrings << string[s..e]
+    e += 1
+    if e == string.length
+      s += 1
+      e = s
+    end
+  end
+  substrings.uniq
 end
 
 def subwords(word, dictionary)
+  ss = substrings(word)
+  ss.select{|w| dictionary.include?(w)}
 end
-
+# p substrings('catinthehat')
+# dict = ["cat", "t", "hello"]
+# p subwords("catinthehat", dict)
 # ### Doubler
 # Write a `doubler` method that takes an array of integers and returns an
 # array with the original elements multiplied by two.
 
 def doubler(array)
+  new_arr = []
+  array.each do |e|
+    new_arr << e * 2
+  end
+  new_arr
 end
 
 # ### My Each
@@ -104,8 +161,19 @@ end
 
 class Array
   def my_each(&prc)
+    #p prc
+    for i in 0..self.length-1
+      prc.call self[i]
+    end
+    self
   end
 end
+# return_value = [1, 2, 3].my_each do |num|
+#   puts num
+# end.my_each do |num|
+#   puts num
+# end
+# p return_value
 
 # ### My Enumerable Methods
 # * Implement new `Array` methods `my_map` and `my_select`. Do
@@ -119,18 +187,45 @@ end
 #   up `[1, 2, 3].inject { |sum, num| sum + num }`), but do the block
 #   (and not the symbol) version. Again, use your `my_each` to define
 #   `my_inject`. Again, do not modify the original array.
-
+#DO NOT MODIFY ORIGINAL ARRAY!
 class Array
   def my_map(&prc)
+    new_arr = []
+    for element in self
+      new_arr << (yield element)
+    end
+    # self.my_each do |element|
+    #   new_arr << (yield element)
+    # end
+    new_arr
   end
 
   def my_select(&prc)
+    new_arr = []
+    for element in self
+      if (yield element)
+        new_arr << element
+      end
+    end
+    # self.my_each do |element|
+    #   if (yield element)
+    #     new_arr << element
+    #   end
+    # end
+    new_arr
   end
 
   def my_inject(&blk)
+    accum = self[0]
+    self.drop(1).my_each do |element|
+      accum = blk.call(accum, element)
+    end
+    accum
   end
 end
-
+p [4,3,2,1].my_inject{|sum, element| sum+=element}
+# p [4,3,5,2,1].my_select {|a| a<2}
+# p [4,3,5,2,1].select {|a| a<2}
 # ### Concatenate
 # Create a method that takes in an `Array` of `String`s and uses `inject`
 # to return the concatenation of the strings.
@@ -141,4 +236,9 @@ end
 # ```
 
 def concatenate(strings)
+  #s = strings.dup
+  a = ""
+  strings.inject(0){|total, word| a<<word}
+  a
 end
+# p concatenate(["a", "b", "c"])

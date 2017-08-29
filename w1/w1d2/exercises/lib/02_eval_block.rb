@@ -8,6 +8,13 @@
 # To take possibly multiple arguments, check out the Ruby
 # splat operator: http://kconrails.com/2010/12/22/rubys-splat-operator
 #
+def eval_block(*args)
+  raise ArgumentError, 'no block' unless block_given?
+  yield *args
+end
+# eval_block("Kerry", "Washington", 23) do |fname, lname, score|
+#   puts "#{lname}, #{fname} won #{score} votes."
+# end
 # Note that the wonderful splat operator can allow a method to take **any**
 # number of arguments. It **also** allows us to pass an array of arguments to a
 # method **as separate arguments**. See the example below:
