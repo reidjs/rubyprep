@@ -5,6 +5,7 @@
 
 class Array
   def sum
+    self.inject(0,:+)
   end
 end
 
@@ -16,9 +17,11 @@ end
 
 class Array
   def square!
+    self.map!{|e|e**2}
   end
 
   def square
+    self.dup.map{|e|e**2}
   end
 end
 
@@ -36,6 +39,13 @@ end
 
 class Array
   def my_uniq
+    arr = []
+    self.each do |e|
+      if !arr.include?(e)
+        arr << e
+      end
+    end
+    arr
   end
 end
 
@@ -57,6 +67,21 @@ end
 
 class Array
   def two_sum
+    pairs = []
+    idx1 = 0
+    idx2 = 1
+    while idx2 < self.length
+      sum = self[idx1] + self[idx2]
+      if sum == 0
+        pairs << [idx1, idx2]
+      end
+      idx2 += 1
+      if idx2 == self.length
+        idx1 += 1
+        idx2 = idx1 + 1
+      end
+    end
+    pairs
   end
 end
 
@@ -69,6 +94,16 @@ end
 
 class Array
   def median
+    sorted = self.sort
+    l = sorted.length
+    if l < 1
+      return nil
+    elsif l % 2 == 0
+      p ((sorted[l/2]+sorted[l/2 - 1]).to_f / 2.0)
+      return ((sorted[l/2]+sorted[l/2 - 1]).to_f / 2.0)
+    else
+      return sorted[l/2]
+    end
   end
 end
 
@@ -121,6 +156,20 @@ end
 
 class Array
   def my_transpose
+    tr = []
+    self.length.times do
+      tr << []
+    end
+    idx = 0
+    self.each do |arr|
+      arr.each do |v|
+        #p v
+        tr[idx] << v
+        idx+=1
+      end
+      idx=0
+    end
+    tr
   end
 end
 

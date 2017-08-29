@@ -15,9 +15,18 @@
 #     * In particular, `"b".ord - "a".ord == 1`.
 # * Lastly, be careful of the letters at the end of the alphabet, like
 #   `"z"`! Ex.: `caesar("zany", 2) # => "bcpa"`
-
+#lowercase only
 class String
   def caesar(shift)
+    shifted = []
+    self.each_byte do |b|
+      shifted << ((b-97)+shift)%26
+    end
+    encrypted = ""
+    shifted.each do |e|
+      encrypted += (e + 97).chr
+    end
+    encrypted
   end
 end
 
@@ -33,9 +42,17 @@ end
 # hash_one.difference(hash_two)
 #  # => { a: "alpha", c: "charlie" }
 # ```
-
+#must go thru both hashes
 class Hash
   def difference(other_hash)
+    diff = {}
+    self.keys.each do |k|
+      diff[k] = self[k] if !other_hash.keys.include?(k)
+    end
+    other_hash.keys.each do |k|
+      diff[k] = other_hash[k] if !self.keys.include?(k)
+    end
+    diff
   end
 end
 
@@ -98,6 +115,20 @@ end
 
 class Fixnum
   def stringify(base)
+    power = 0
+    s = []
+    while base**power <= self
+      v = (self / (base**power))
+      digit = v % base
+      #substitute letters if it's too big
+      if digit > 9
+        digit += 87
+        digit = digit.chr
+      end
+      s << digit
+      power+=1
+    end
+    s.reverse.join()
   end
 end
 
