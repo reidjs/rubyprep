@@ -34,6 +34,14 @@ class Dictionary
     found
   end
   def printable
-
+    str = ""
+    cnt = 0
+    temp = @d.keys.sort
+    temp.each do |k|
+      str += "["+k+"] \""+@d[k]+"\""
+      cnt < temp.length-1 ? str += "\n" : nil
+      cnt += 1
+    end
+    str
   end
 end
