@@ -17,7 +17,7 @@
 #
 # The temperature object's constructor should accept an *options hash*
 # which contains either a `:celcius` entry or a `:fahrenheit` entry.
-
+#factory methods create objects 
 require "03_temperature_object"
 
 describe Temperature do
