@@ -17,3 +17,6 @@
 # transmogrify("hello", options)
 # # options shouldn't change.
 # ```
+def transmogrify(options = {})
+  
+end

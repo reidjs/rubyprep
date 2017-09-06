@@ -1,5 +1,5 @@
 require "board"
-
+require "byebug"
 describe "Board" do
   let(:board) { Board.new }
 
@@ -86,7 +86,6 @@ describe "Board" do
     context "when :O has won a column" do
       it "returns :O" do
         place_marks([[0, 2], [1, 2], [2, 2]], :O)
-
         expect(board.winner).to be :O
       end
     end
