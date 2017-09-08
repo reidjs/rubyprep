@@ -71,4 +71,9 @@ describe "#translate" do
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
   # * retain the punctuation from the original phrase
+
+  it "preserves capitalization and punction" do
+    s = translate("We're out of cake, my dear!")
+    expect(s).to eq("E'reway outay ofay akecay, ymay earday!")
+  end
 end
