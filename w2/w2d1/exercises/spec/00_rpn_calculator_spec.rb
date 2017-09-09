@@ -152,7 +152,7 @@ describe RPNCalculator do
     expect(calculator.evaluate("2 3 /")).to eq(
       (2.0 / 3.0)
     )
-
+    
     expect(calculator.evaluate("1 2 3 * + 4 5 - /")).to eq(
       (1.0 + (2 * 3)) / (4 - 5)
     )

@@ -5,25 +5,39 @@
 
 
 require 'byebug'
-require 'pry'
+# require 'pry'
 class RPNCalculator
   attr_accessor :value
   def initialize
     @stack = []
+    @ops = {
+      "+" => :+,
+      "-" => :-,
+      "/" => :/,
+      "*" => :*,
+    }
   end
   def push(e)
     @stack << e
   end
+  def perform_other_operation(val)
+    if @ops.values.include?(val)
+      self.send(val)
+    end
+  end
   def plus
     raise 'calculator is empty' if @stack.length < 2
-    byebug
-    @stack << @stack.pop + @stack.pop
+    a = @stack.pop
+    b = @stack.pop
+
+    @stack << a + b
     @value = @stack.last
   end
   def minus
     raise 'calculator is empty' if @stack.length < 2
     a = @stack.pop
     b = @stack.pop
+
     @stack << b-a
     @value = @stack.last
   end
@@ -36,36 +50,32 @@ class RPNCalculator
     raise 'calculator is empty' if @stack.length < 2
     a = @stack.pop.to_f
     b = @stack.pop.to_f
+
     @stack << b / a
     @value = @stack.last
   end
   def tokens(str)
-    ops = {
-      "+" => :+,
-      "-" => :-,
-      "/" => :/,
-      "*" => :*,
-    }
     str.split(' ').each do |c|
       self.push(c.to_i) if !(c =~ /[0123456789]/).nil?
-      self.push(ops[c]) if ops.keys.include?(c)
+      self.push(@ops[c]) if @ops.keys.include?(c)
     end
     @stack
   end
+
   def evaluate(str)
-    self.tokens(str)
-    next_op = @stack.pop
-    byebug
-    self.send(next_op)
-    #@value
+    str.split(' ').each do |c|
+      self.push(c.to_i) if !(c =~ /[0123456789]/).nil?
+      self.send(@ops[c]) if @ops.keys.include?(c)
+    end
+    @stack.pop
   end
   alias_method :+, :plus
   alias_method :-, :minus
   alias_method :*, :times
   alias_method :/, :divide
 end
-calculator = RPNCalculator.new
-calculator.evaluate("1 2 3 * +")
+# calculator = RPNCalculator.new
+# calculator.evaluate("1 2 3 * +")
 
 
 # # # calculator.push(4)
@@ -73,4 +83,4 @@ calculator.evaluate("1 2 3 * +")
 # # calculator.value
 # # calculator.plus
 # # calculator.value
-binding.pry
+# binding.pry
