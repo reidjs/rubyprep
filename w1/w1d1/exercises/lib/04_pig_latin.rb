@@ -1,7 +1,16 @@
 def translate_word(s)
-  s.upcase == s ? uppercase = true : uppercase = false
+  uppercase = false
+  uppercase = true if s[0].upcase == s[0]
+  punctuation = ""
+  #store all punctuation
+  if s[s.length-1] =~ /[.,!?]/
+    punctuation = s[s.length-1]
+    s[s.length-1] = ""
+  end
   s.downcase!
   str = ''
+
+
   #starts with vowel
   if vowel?(s[0])
     str = s + "ay"
@@ -18,7 +27,9 @@ def translate_word(s)
     vowelidx = index_first_vowel(s)
     str = s[vowelidx,s.length]+s[0, vowelidx]+"ay"
   end
-  str
+  str[0] = str[0].upcase! if uppercase
+  #add punctuation back in
+  str + punctuation
 end
 #returns the character as vowel or consonant
 def vowel?(c)

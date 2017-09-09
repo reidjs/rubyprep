@@ -74,6 +74,6 @@ describe "#translate" do
 
   it "preserves capitalization and punction" do
     s = translate("We're out of cake, my dear!")
-    expect(s).to eq("E'reway outay ofay akecay, ymay earday!")
+    expect(s).to eq("E'reway outay ofay akecay, myay earday!")
   end
 end
