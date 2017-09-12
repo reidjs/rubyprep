@@ -50,12 +50,22 @@
 #     * May want to write a `Student#has_conflict?` method to help.
 # require_relative 'student'
 class Course
-  attr_accessor :name, :dept, :credits, :students
-  def initialize(name, dept, credits)
+  attr_accessor :name, :department, :credits, :students, :days, :time_block
+  def initialize(name, department, credits, days=[], time_block=0)
     @name = name
-    @dept = dept
+    @department = department
     @credits = credits
     @students = []
+    @days = days
+    @time_block = time_block
+  end
+  def conflicts_with?(c)
+    @days.each do |d|
+      c.days.each do |e|
+        return true if d == e && @time_block == c.time_block
+      end
+    end
+    false
   end
   def add_student(s)
     if !@students.include?(s)

@@ -11,19 +11,20 @@
 #   could create a random number using the Random class, or you could use the
 #   `shuffle` method in array.
 
-$myNum = rand(10)+1
-$guesses = 0
-def play_game
+
+def guessing_game(myNum=rand(100)+1, guesses=0)
+  puts "guess a number "
   playerGuess = gets.chomp.to_i
-  $guesses += 1
-  if playerGuess < $myNum
-    puts "Too low"
-    play_game
-  elsif playerGuess > $myNum
-    puts "Too high"
-    play_game
+  puts playerGuess
+  guesses += 1
+  if playerGuess < myNum
+    puts "too low"
+    guessing_game(myNum, guesses)
+  elsif playerGuess > myNum
+    puts "too high"
+    guessing_game(myNum, guesses)
   else
-    puts "You win! It took you #{$guesses} guesses to get #{$myNum}"
+    puts "You win! It took you #{guesses} guesses to get #{myNum}"
   end
 end
 
@@ -41,4 +42,8 @@ def shuffler
     File.write(shuffled_filename, l, File.size(shuffled_filename), mode: 'a')
   end
 end
-shuffler
+  # guess = gets.chomp
+  # puts guess
+  # raise NoMoreInput if guess == "0"
+
+# shuffler

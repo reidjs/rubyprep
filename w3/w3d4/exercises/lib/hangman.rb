@@ -3,7 +3,7 @@ class Hangman
   def initialize(players)
     @guesser = players[:guesser]
     @referee = players[:referee]
-
+    @guessed_letters = []
   end
   def setup
     secret_word_length = @referee.send(:pick_secret_word)
