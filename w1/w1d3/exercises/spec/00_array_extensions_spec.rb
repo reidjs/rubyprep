@@ -126,6 +126,20 @@ describe Array do
       ])
     end
 
+    it "transposes rectangular arrays" do
+      bonus_arr = [
+        [1, 2, 3],
+        [4, 5, 6]
+        ]
+        bonus_arr_transposed = [
+          [1, 4],
+          [2, 5],
+          [3, 6]
+        ]
+
+        expect(bonus_arr.my_transpose_bonus).to eq(bonus_arr_transposed)
+    end
+
     it "should not call the built-in #transpose method" do
       expect(arr).not_to receive(:transpose)
 

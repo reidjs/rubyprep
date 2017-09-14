@@ -171,6 +171,22 @@ class Array
     end
     tr
   end
+  def my_transpose_bonus
+    tr = []
+    self[0].length.times do
+      tr << []
+    end
+    idx = 0
+    self.each do |arr|
+      arr.each do |v|
+        tr[idx] << v
+        idx+=1
+      end
+      idx=0
+    end
+    #self.transpose
+    tr
+  end
 end
 
 # Bonus: Refactor your `Array#my_transpose` method to work with any rectangular
