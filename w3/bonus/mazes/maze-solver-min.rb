@@ -1,11 +1,9 @@
 
-require 'byebug'
 filename = "maze2.txt"
 grid = []
 File.foreach(filename) do |c|
   grid << c
 end
-
 class Solver
   attr_accessor :position, :facing
   def initialize(grid)
@@ -27,33 +25,17 @@ class Solver
     x = @position[0]; y = @position[1]
     @grid[y-1][x]
   end
-  def up_cell_coords
-    x = @position[0]; y = @position[1]
-    [y-1,x]
-  end
   def down_cell
     x = @position[0]; y = @position[1]
     @grid[y+1][x]
-  end
-  def down_cell_coords
-    x = @position[0]; y = @position[1]
-    [y+1,x]
   end
   def left_cell
     x = @position[0]; y = @position[1]
     @grid[y][x-1]
   end
-  def left_cell_coords
-    x = @position[0]; y = @position[1]
-    [y,x-1]
-  end
   def right_cell
     x = @position[0]; y = @position[1]
     @grid[y][x+1]
-  end
-  def right_cell_coords
-    x = @position[0]; y = @position[1]
-    [y,x+1]
   end
   def move?(dir)
     x = @position[0]
@@ -105,40 +87,18 @@ class Solver
     x = @position[0]
     y = @position[1]
     @visited_cells << [y,x]
-    # p @visited_cells
-    # if !@visited_cells.include?(left_cell_coords) && move?('left')
-    #   move!('left')
-    # elsif !@visited_cells.include?(up_cell_coords) && move?('up')
-    #   move!('up')
-    # elsif !@visited_cells.include?(right_cell_coords) && move?('right')
-    #   move!('right')
-    # elsif !@visited_cells.include?(down_cell_coords) && move?('down')
-    #   move!('down')
-    # end
-
     if relative_left_cell == " "
       turn_left!
     elsif relative_left_cell != "*" || !move_forward?
       turn_right!
     end
     move_forward!
-    # render
     if @position != @end
       left_hand_solve(count+1)
     else
       p "Finished! Took #{count} moves"
     end
-    # if move?('up') &&
-    #find cell where '*' is to the left ignoring cells previously visited
   end
-  def render
-    @grid.each_index do |i|
-      @grid[i].chars.each_index do |j|
-        ([j,i] == @position) ? (print "A") : (print @grid[i][j])
-      end
-    end
-  end
-
   def render_moves
     @grid.each_index do |i|
       @grid[i].chars.each_index do |j|
@@ -149,13 +109,5 @@ class Solver
 end
 
 solver = Solver.new(grid)
-solver.render
-# solver.move_forward!
 solver.left_hand_solve
 solver.render_moves
-# solver.render
-# solver.turn_left!
-# solver.move_forward!
-# solver.turn_right!
-# solver.move_forward!
-# solver.render
