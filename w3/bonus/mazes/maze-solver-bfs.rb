@@ -1,9 +1,11 @@
 #WARNING: Will break if the graph has blanks
 #make sure graph is a completely filled rectangle
+#issue: stripping off the edge of the maze
 filename = "maze3.txt"
 yxgrid = []
 i = 0
 maxlength = 0
+#using .strip to remove all the newlines from the file causes problems
 File.foreach(filename) do |c|
   if c[0] == '#'
     next
@@ -65,20 +67,20 @@ class Graph
     #if space found, connect the two.
     #we only need to check up and left because we don't
     #want to double check cells(only previous cells are checked)
-    grid2 = grid.dup
     i = 0
-    while i < grid.length
+    while i < @grid.length
       j = 0
-      while j < grid[i].length
+      while j < @grid[i].length
         j+=1
         #match S, E, or whitespace (\s)
-        if grid[i][j] =~ /[SE\s]/
+        if @grid[i][j] =~ /\s/
           #add node to graph with position i, j
           node = new_node([i,j])
+          p "#{i}, #{j}"
           #set the type to whatever the grid character is, either S, E or whitespace
-          node.type = grid[i][j]
+          node.type = @grid[i][j]
           #set grid space to a node (maybe unnecessary)
-          grid[i][j] = node
+          @grid[i][j] = node
           #check the up and left cells
           up_cell = up_cell(i, j)
           left_cell = left_cell(i, j)
@@ -110,9 +112,10 @@ class Graph
       j = 0
       while j < @grid[i].length
         if @grid[j][i].class == Node
-          print grid[j][i].adj.length
+          # print grid[j][i].adj.length
+          print @grid[j][i].type
         else
-          print grid[j][i]
+          print @grid[j][i]
         end
         # print "#{j},#{i} "
         j += 1
@@ -121,8 +124,35 @@ class Graph
       i += 1
     end
   end
-  def depth_first_search
-
+  #pass in the starting node and will travel to all others
+  #this affects the nodes by marking them
+  def depth_first_search!(node)
+    node.marked = true
+    node.type = "M"
+    node.adj.each do |n|
+      if n.marked == false
+        depth_first_search(n)
+      end
+    end
+  end
+  def depth_first_search(start_node)
+    @marked = [start_node]
+    i = 0
+    while i < @marked.length
+      p @marked[i].pos
+      @marked[i].adj.each do |n|
+        if !@marked.include?(n)
+          @marked << n
+        end
+      end
+      i += 1
+    end
+    p @marked.length
+    p @nodes.length
+  end
+  def pathTo(startnode, endnode)
+    #record path from start to end
+    #find all paths that go from [start] to [end] without repeat
   end
 end
 class Node
@@ -134,6 +164,8 @@ class Node
 end
 x = Graph.new(xygrid)
 x.grid_to_nodes
+x.render
+x.depth_first_search(x.nodes[0])
 x.render
 #p x.nodes[2].adj[0].type
 # x.new_node(0)
