@@ -5,10 +5,14 @@ require "byebug"
 describe Board do
   subject(:board) { Board.new }
 
-  let(:empty_grid) { Array.new(2) { Array.new(2) } }
+  let(:empty_grid) { Array.new(3) { Array.new(3) } }
   let(:empty_board) { Board.new(empty_grid) }
 
-  let(:two_ship_grid) { [[:s, :s], [nil, nil]] }
+  let(:two_ship_grid) { [
+    [:s, :s, nil],
+    [nil, nil, nil],
+    [nil, nil, nil],
+    [nil, nil, nil]] }
   let(:two_ship_board) { Board.new(two_ship_grid) }
 
   let(:full_grid) { [[:s, :s], [:s, :s]] }
@@ -138,13 +142,13 @@ describe Board do
     end
 
     it "returns false if ship not horiz or vertical" do
-      x = empty_board.place_ship(:destroyer, [0,0],[2,0])
+      x = empty_board.place_ship(:destroyer, [0,0],[1,0])
       expect(x).to eq(true)
       x = empty_board.place_ship(:destroyer, [1,0],[1,0])
       expect(x).to eq(false)
       x = empty_board.place_ship(:destroyer, [1,1],[2,2])
       expect(x).to eq(false)
-      x = empty_board.place_ship(:destroyer, [0,0],[0,2])
+      x = empty_board.place_ship(:destroyer, [0,0],[0,1])
       expect(x).to eq(true)
     end
 
@@ -165,10 +169,17 @@ describe Board do
       expect(y).to match_array([[0,0], [0,1], [0,2]])
     end
     it "doesn't allow placing ships on filled spaces" do
-      empty_board.place_ship(:destroyer, [0,0], [1,0])
-      byebug
-      x = empty_board.place_ship(:destroyer, [0,0], [1,0])
+      x = two_ship_board.place_ship(:destroyer, [0,0], [1,0])
       expect(x).to eq(false)
+    end
+    it "allows ships on empty spaces" do
+      y = two_ship_board.place_ship(:destroyer, [2,0], [2,1])
+      expect(two_ship_board.grid[2][0]).to eq(:destroyer)
+      expect(two_ship_board.grid[2][1]).to eq(:destroyer)
+      expect(two_ship_board.grid[2][2]).not_to eq(:destroyer)
+      expect(two_ship_board.grid[1][2]).not_to eq(:destroyer)
+      # byebug
+      # z = two_ship_board.place_ship(:destroyer, [2,0], [2,2])
     end
   end
 end

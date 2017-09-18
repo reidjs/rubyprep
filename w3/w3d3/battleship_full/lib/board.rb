@@ -30,13 +30,12 @@ class Board
     #either 'x' pos should be equal or 'y' pos but not both
     return false if !((a[0] == b[0]) ^ (a[1] == b[1]))
     #ensure the ship length is equal to distance b/w points
-    return false if SHIPS[ship] != distance(a,b)
+    return false if SHIPS[ship] != distance(a,b) + 1
     #make sure none of the spots are taken already
     grid_spaces = traverse(a, b)
-    grid_spaces.each {|point| return false if can_occupy_cell?(point)}
-    p grid_spaces
+    grid_spaces.each {|point| return false if !can_occupy_cell?(point)}
     #set each grid space to name of ship
-    grid_spaces.each {|point| @grid[point[0]][point[1]] = SHIPS[ship]}
+    grid_spaces.each {|point| @grid[point[0]][point[1]] = ship}
     true
 
   end
@@ -86,7 +85,7 @@ class Board
     # p pos
     # # byebug
     return false if pos[0] < 0 || pos[0] >= @grid.length
-    return false if pos[1] < 0 || pos[1] >= @grid[0].length   
+    return false if pos[1] < 0 || pos[1] >= @grid[0].length
     empty?(pos)
     # return false if (pos[0] >= @grid.length || pos[1] >= @grid.length)
     # return true if pos && @grid[pos[0]][pos[1]] != nil
