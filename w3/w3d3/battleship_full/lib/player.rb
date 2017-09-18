@@ -14,10 +14,11 @@ class HumanPlayer
         y = Integer(c) if y.nil? && !x.nil?
       end
     end
-    if valid_play(x, y)
+    if valid_play?(x, y)
       return attack
     else
       get_play
+    end
   end
   def valid_play?(x, y)
     x > 0 && x < @board.grid.length

@@ -1,6 +1,8 @@
 #WARNING: Will break if the graph has blanks
 #make sure graph is a completely filled rectangle
 #issue: stripping off the edge of the maze
+#issue: counting the new lines as nodes
+require 'byebug'
 filename = "maze3.txt"
 yxgrid = []
 i = 0
@@ -76,7 +78,7 @@ class Graph
         if @grid[i][j] =~ /\s/
           #add node to graph with position i, j
           node = new_node([i,j])
-          p "#{i}, #{j}"
+          # p "#{i}, #{j}"
           #set the type to whatever the grid character is, either S, E or whitespace
           node.type = @grid[i][j]
           #set grid space to a node (maybe unnecessary)
@@ -108,12 +110,13 @@ class Graph
   end
   def render
     i = 0
+    # byebug
     while i < @grid.length
       j = 0
       while j < @grid[i].length
         if @grid[j][i].class == Node
-          # print grid[j][i].adj.length
-          print @grid[j][i].type
+          print @grid[j][i].adj.length
+          # print @grid[i][j].type
         else
           print @grid[j][i]
         end
@@ -139,7 +142,7 @@ class Graph
     @marked = [start_node]
     i = 0
     while i < @marked.length
-      p @marked[i].pos
+      # p @marked[i].pos
       @marked[i].adj.each do |n|
         if !@marked.include?(n)
           @marked << n
@@ -147,8 +150,8 @@ class Graph
       end
       i += 1
     end
-    p @marked.length
-    p @nodes.length
+    # p @marked.length
+    # p @nodes.length
   end
   def pathTo(startnode, endnode)
     #record path from start to end

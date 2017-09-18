@@ -126,4 +126,49 @@ describe Board do
       end
     end
   end
+  describe "#place ship" do
+    it "returns false" do
+      x = empty_board.place_ship("a", 0, 0)
+      expect(x).to be_falsey
+
+    end
+    it "returns distance correctly" do
+      x = empty_board.distance([0,0], [4,0])
+      expect(x).to eq(4)
+    end
+
+    it "returns false if ship not horiz or vertical" do
+      x = empty_board.place_ship(:destroyer, [0,0],[2,0])
+      expect(x).to eq(true)
+      x = empty_board.place_ship(:destroyer, [1,0],[1,0])
+      expect(x).to eq(false)
+      x = empty_board.place_ship(:destroyer, [1,1],[2,2])
+      expect(x).to eq(false)
+      x = empty_board.place_ship(:destroyer, [0,0],[0,2])
+      expect(x).to eq(true)
+    end
+
+    it "traverses between two points" do
+      x = empty_board.traverse([0,0], [1,0])
+      expect(x).to match_array([[0,0], [1,0]])
+      x = empty_board.traverse([0,0], [2,0])
+      expect(x).to match_array([[0,0], [1,0], [2,0]])
+      x = empty_board.traverse([2,0], [0,0])
+      expect(x).to match_array([[0,0], [1,0], [2,0]])
+      x = empty_board.traverse([1,0], [0,0])
+      expect(x).to match_array([[0,0], [1,0]])
+      y = empty_board.traverse([0,1], [0,0])
+      expect(y).to match_array([[0,0], [0,1]])
+      y = empty_board.traverse([0,0], [0,3])
+      expect(y).to match_array([[0,0], [0,1], [0,2], [0,3]])
+      y = empty_board.traverse([0,2], [0,0])
+      expect(y).to match_array([[0,0], [0,1], [0,2]])
+    end
+    it "doesn't allow placing ships on filled spaces" do
+      empty_board.place_ship(:destroyer, [0,0], [1,0])
+      byebug
+      x = empty_board.place_ship(:destroyer, [0,0], [1,0])
+      expect(x).to eq(false)
+    end
+  end
 end
