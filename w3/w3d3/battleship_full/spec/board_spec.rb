@@ -172,14 +172,29 @@ describe Board do
       x = two_ship_board.place_ship(:destroyer, [0,0], [1,0])
       expect(x).to eq(false)
     end
-    it "allows ships on empty spaces" do
-      y = two_ship_board.place_ship(:destroyer, [2,0], [2,1])
+    it "allows creating multiple destroyers on game board" do
+      two_ship_board.place_ship(:destroyer, [2,0], [2,1])
       expect(two_ship_board.grid[2][0]).to eq(:destroyer)
       expect(two_ship_board.grid[2][1]).to eq(:destroyer)
       expect(two_ship_board.grid[2][2]).not_to eq(:destroyer)
       expect(two_ship_board.grid[1][2]).not_to eq(:destroyer)
-      # byebug
-      # z = two_ship_board.place_ship(:destroyer, [2,0], [2,2])
+      two_ship_board.place_ship(:destroyer, [1,2], [2,2])
+      expect(two_ship_board.grid[2][2]).to eq(:destroyer)
+      expect(two_ship_board.grid[1][2]).to eq(:destroyer)
+    end
+    it "allows creating cruisers on board" do
+      # let(:two_ship_board) { Board.new(two_ship_grid) }
+      two_ship_board.place_ship(:cruiser, [2,0], [2,2])
+      expect(two_ship_board.grid[2][0]).to eq(:cruiser)
+      expect(two_ship_board.grid[2][1]).to eq(:cruiser)
+      expect(two_ship_board.grid[2][2]).to eq(:cruiser)
+    end
+
+  end
+  describe "render" do
+    it "renders board" do
+      expect(empty_board.render).to eq(empty_board.grid)
+      expect(two_ship_board.render).to eq(two_ship_board.grid)
     end
   end
 end

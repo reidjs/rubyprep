@@ -1,17 +1,18 @@
 require 'byebug'
 #Ship types and their lengths
-SHIPS = {
-  :carrier => 5,
-  :battleship => 4,
-  :submarine => 3,
-  :cruiser => 3,
-  :destroyer => 2,
-  :s => 1
-}
+
 class Board
-  attr_reader :grid
+  attr_reader :grid, :SHIPS
   def initialize(grid = Board.default_grid)
     @grid = grid
+    @SHIPS = {
+      :carrier => 5,
+      :battleship => 4,
+      :submarine => 3,
+      :cruiser => 3,
+      :destroyer => 2,
+      :s => 1
+    }
   end
   def self.default_grid
     default_size = 10
@@ -24,13 +25,13 @@ class Board
   #a is starting position, b is ending point
   def place_ship(ship, a, b)
     #make sure ship type exists
-    return false if SHIPS[ship].nil?
+    return false if @SHIPS[ship].nil?
 
     #ensure that ships are only placed horiz or vert
     #either 'x' pos should be equal or 'y' pos but not both
     return false if !((a[0] == b[0]) ^ (a[1] == b[1]))
     #ensure the ship length is equal to distance b/w points
-    return false if SHIPS[ship] != distance(a,b) + 1
+    return false if @SHIPS[ship] != distance(a,b) + 1
     #make sure none of the spots are taken already
     grid_spaces = traverse(a, b)
     grid_spaces.each {|point| return false if !can_occupy_cell?(point)}
@@ -92,7 +93,7 @@ class Board
     # false
   end
   def empty?(pos=false)
-    return true if pos && SHIPS[@grid[pos[0]][pos[1]]].nil?
+    return true if pos && @SHIPS[@grid[pos[0]][pos[1]]].nil?
     return true if self.count == 0
     false
   end
@@ -111,5 +112,9 @@ class Board
     y = rand(@grid.length)
     @grid[x][y] = :s
   end
-
+  def render
+    @grid.each do |row|
+      p row
+    end
+  end
 end
