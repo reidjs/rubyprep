@@ -43,40 +43,67 @@ class HumanPlayer
     end
   end
   #pos is the top, leftmost position of the ship
-  def place_ship_location_prompt(ship, pos)
-
+  def place_ship_location_prompt(ship, pos, rot="vertical")
+    @board.clear_temp_spaces
     size = board.SHIPS[ship]
+    # size = 1
     x = pos[0]
     y = pos[1]
-    board.grid[x][y] = "X"
-    board.render
+    rot == "vertical" ? x2 = x + size : x2 = x
+    rot == "horizontal" ? y2 = y + size : y2 = y
+    p "sposition: #{pos}, eposition: #{[y2, x2]}"
+    render_ship_on_board(ship, @board.traverse(pos, [x2, y2]))
+
     puts "Use the arrows to move the ship, space to rotate, enter to confirm"
     input = STDIN.getch
     #code from https://gist.github.com/acook/4190379
+    interpret_input(input, ship, [x, y], rot)
+    # move_ship_on_board(input, @board.traverse())
+  end
+  #send in array of positions occupied by the ship
+  def render_ship_on_board(ship, arr)
+    # p arr
+    arr.each do |e|
+      board.grid[e[0]][e[1]] = "X"
+    end
+    board.render
+  end
+  def interpret_input(input, ship, pos, rot)
+    x = pos[0]
+    y = pos[1]
+    size = board.SHIPS[ship]
     if input == "\e" then
       input << STDIN.read_nonblock(3) rescue nil
       input << STDIN.read_nonblock(2) rescue nil
     end
-    #up
-    if input == "\e[A" && x - 1 >= 0
-      board.grid[x][y] = nil
-      place_ship_location_prompt(ship, [x-1,y])
-    elsif input == "\e[B" && x + 1 < board.grid.length
-      board.grid[x][y] = nil
-      place_ship_location_prompt(ship, [x+1,y])
-    elsif input == "\e[C" && y + 1 < board.grid.length
-      board.grid[x][y] = nil
-      place_ship_location_prompt(ship, [x,y+1])
-    elsif input == "\e[D" && y - 1 >= 0
-      board.grid[x][y] = nil
-      place_ship_location_prompt(ship, [x,y-1])
+    p "input: #{input}"
+    if input == "\e[A" && x - size >= 0
+      # board.grid[x][y] = nil
+      # place_ship_location_prompt(ship, [x-1,y])
+      x -= 1
+    elsif input == "\e[B" && x + size < board.grid.length
+      # board.grid[x][y] = nil
+      # place_ship_location_prompt(ship, [x+1,y])
+
+      x += 1
+    elsif input == "\e[C" && y + size < board.grid.length
+      # board.grid[x][y] = nil
+      # place_ship_location_prompt(ship, [x,y+1])
+      y += 1
+    elsif input == "\e[D" && x - size >= 0
+      # board.grid[x][y] = nil
+      y -= 1
+      # place_ship_location_prompt(ship, [x,y-1])
+    #rotation needs to check if it will go off the grid
+    elsif input == " "
+      rot == "vertical" ? rot = "horizontal" : rot = "vertical"
+      # place_ship_location_prompt(ship, pos, rot)
     elsif input == '\u0003' || input == "\e"
       return false
-    else
-      place_ship_location_prompt(ship, pos)
     end
-
+    place_ship_location_prompt(ship, [x, y], rot)
   end
+
   def place_ships
     board.render
     ship = place_ship_type_prompt

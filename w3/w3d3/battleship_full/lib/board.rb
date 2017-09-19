@@ -40,6 +40,13 @@ class Board
     true
 
   end
+  def clear_temp_spaces
+    @grid.each_index do |i|
+      @grid[i].each_index do |j|
+        @grid[j][i] = nil if @grid[j][i] == "X"
+      end
+    end
+  end
   #walks from point a to point b and returns array of all
   #points in between
   def traverse(a, b, arr=[])
