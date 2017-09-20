@@ -97,7 +97,12 @@ class HumanPlayer
       # place_ship_location_prompt(ship, [x,y-1])
     #rotation needs to check if it will go off the grid
     elsif input == " "
-      rot == "vertical" ? rot = "horizontal" : rot = "vertical"
+      if rot == "vertical"
+        y = y - size  if y + size > (@board.grid.length - 1)
+        rot = "horizontal"
+      else
+        rot = "vertical"
+      end
       # place_ship_location_prompt(ship, pos, rot)
     elsif input == '\u0003' || input == "\e"
       return false
