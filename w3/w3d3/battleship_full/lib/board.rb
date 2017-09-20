@@ -6,12 +6,11 @@ class Board
   def initialize(grid = Board.default_grid)
     @grid = grid
     @SHIPS = {
-      :CV => 5,
-      :BB => 4,
-      :SS => 3,
-      :CC => 3,
-      :DD => 1,
-      :s => 1
+      :CV => 4,
+      # :BB => 3,
+      # :SS => 2,
+      # :CC => 2,
+      # :DD => 1,
     }
   end
   def self.default_grid
@@ -118,7 +117,7 @@ class Board
     raise "Board is full!" if self.full?
     x = rand(@grid.length)
     y = rand(@grid.length)
-    @grid[x][y] = :s
+    @grid[x][y] = "X"
   end
   def render
     @grid.each do |row|

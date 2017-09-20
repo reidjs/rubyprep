@@ -1,10 +1,12 @@
 require_relative "board"
+require_relative "attack_grid"
 require 'io/console'
 class HumanPlayer
-  attr_accessor :name, :board
+  attr_accessor :name, :board, :attack_board
   def initialize(name, board)
     @name = name
     @board = board
+    @attack_grid = Attack_Grid.new
     @ships_to_place = board.SHIPS.keys
   end
 
@@ -28,18 +30,37 @@ class HumanPlayer
     x > 0 && x < @board.grid.length
     y > 0 && y < @board.grid.length
   end
-  def prompt
-    puts "Enter a space to attack: "
+  def attack_prompt
+    p "should be empty:"
+    @attack_grid.render
+    puts "Select a space to attack: "
+    # get
   end
   def place_ship_type_prompt
-    puts "Enter a ship type: (D)estroyer [DD], (C)ruiser [CC]"
+    # byebug if @ships_to_place.length == 0
+    # return false if @ships_to_place.length == 0
+    ship_names = {
+      :DD => "(D)estroyer [DD]",
+      :CC => "(C)ruiser [CC]",
+      :CV => "c(A)rrier [CV]",
+      :BB => "(B)attleship [BB]",
+      :SS => "(S)ubmarine [SS]"
+    }
+    str=""
+    @ships_to_place.each do |e|
+      str+=ship_names[e]+"\t"
+    end
+    puts "Enter a ship to place: #{str} "
     input = gets.downcase.chomp
-    ship = :destroyer if input == "d" || input == "destroyer"
-    ship = :cruiser if input == "c" || input == "cruiser"
+    ship = :DD if input == "d" || input == "destroyer" || input == "dd"
+    ship = :CC if input == "c" || input == "cruiser" || input == "cc"
+    ship = :CV if input == "a" || input == "carrier" || input == "cv"
+    ship = :BB if input == "b" || input == "battleship" || input == "bb"
+    ship = :SS if input == "s" || input == "submarine" || input == "ss"
     if !@ships_to_place.include?(ship)
       place_ship_type_prompt
     else
-      return ship
+      place_ship_location_prompt(ship)
     end
   end
   def get_array_of_spaces_taken_by_ship(ship, pos, rot)
@@ -53,14 +74,14 @@ class HumanPlayer
     @board.traverse(pos, [x2, y2])
   end
   #pos is the top, leftmost position of the ship
-  def place_ship_location_prompt(ship, pos, rot="vertical")
+  def place_ship_location_prompt(ship, pos=[0,0], rot="vertical")
     @board.clear_temp_spaces
     spaces = get_array_of_spaces_taken_by_ship(ship, pos, rot)
     render_ship_on_board(ship, spaces)
     puts "Use the arrows to move the ship, space to rotate, enter to confirm"
     #get input from the player
-    input = STDIN.getch
-    handle_player_input(input, ship, pos, rot)
+    # input = STDIN.getch
+    handle_player_ship_placement_input(ship, pos, rot)
     # move_ship_on_board(input, @board.traverse())
   end
   #send in array of positions occupied by the ship
@@ -73,56 +94,107 @@ class HumanPlayer
     end
     @board.render
   end
-  def handle_player_input(input, ship, pos, rot)
+  #returns keypress
+  def get_and_interpret_player_input
+    input = STDIN.getch
+    if input == "\e" then
+      input << STDIN.read_nonblock(3) rescue nil
+      input << STDIN.read_nonblock(2) rescue nil
+    end
+    if input == "\e[A"
+      return "up"
+    elsif input == "\e[B"
+      return "down"
+    elsif input == "\e[C"
+      return "right"
+    elsif input == "\e[D"
+      return "left"
+    elsif input == " "
+      return "spacebar"
+    elsif input == '\u0003' || input == "\e"
+      return "escape"
+    elsif input == "\r"
+      return "enter"
+    end
+  end
+  def handle_player_attack_input(pos)
+
+  end
+  def handle_player_ship_placement_input(ship, pos, rot)
     x = pos[0]
     y = pos[1]
     size = board.SHIPS[ship]
     rot == "vertical" ? xsize = size : xsize = 0
     rot == "horizontal" ? ysize = size : ysize = 0
-    if input == "\e" then
-      input << STDIN.read_nonblock(3) rescue nil
-      input << STDIN.read_nonblock(2) rescue nil
-    end
+    input = get_and_interpret_player_input
+    # if input == "\e" then
+    #   input << STDIN.read_nonblock(3) rescue nil
+    #   input << STDIN.read_nonblock(2) rescue nil
+    # end
     #code from https://gist.github.com/acook/4190379
-    if input == "\e[A" && x > 0
+    if input == "up" && x > 0
       x -= 1
-    elsif input == "\e[B" && x + xsize < (board.grid.length - 1)
+    elsif input == "down" && x + xsize < (board.grid.length - 1)
       x += 1
-    elsif input == "\e[C" && y+ysize < (board.grid.length - 1)
+    elsif input == "right" && y+ysize < (board.grid.length - 1)
       y += 1
-    elsif input == "\e[D" && y > 0
+    elsif input == "left" && y > 0
       y -= 1
-    elsif input == " "
+    elsif input == "spacebar"
       if rot == "vertical"
         y = y - size  if y + size > (@board.grid.length - 1)
         rot = "horizontal"
       else
         rot = "vertical"
       end
-    elsif input == '\u0003' || input == "\e"
+    elsif input == "escape"
       return false
-    elsif input == "\r"
-      place_ships if place_ship_at_location(ship, pos, rot)
+    elsif input == "enter"
+      if place_ship_at_location(ship, pos, rot)
+        if @ships_to_place.length > 0
+          return place_ships
+        else
+          return 0
+        end
+      end
+      # place_ships if  && @ships_to_place.length > 0
       # place_ships if @ships_to_place.length > 0
     end
     p "in: #{input}, x: #{x}, y: #{y}, size:#{size}, rot: #{rot}"
     place_ship_location_prompt(ship, [x, y], rot)
   end
   def place_ship_at_location(ship, pos, rot)
+    # byebug
     spaces = get_array_of_spaces_taken_by_ship(ship, pos, rot)
+    #if any spaces are already occupied, return false
     spaces.each do |e|
-      p "#{e}, empty? #{@board.empty?(e)}"
+      # p "#{e}, empty? #{@board.empty?(e)}"
+      #this should go to the ship placement screen
+      return false if !board.empty?(e)
     end
-    false
+    #otherwise, fill those spaces with the ship name
+    spaces.each do |e|
+      # p "#{e}"
+      @board.grid[e[0]][e[1]] = ship
+    end
+    remove_from_ship_list(ship)
+    #this should go to the Pick the next ship to place screen
+    true
+  end
+  def remove_from_ship_list(ship)
+    @ships_to_place.delete(ship)
   end
   def place_ships
-    board.render
-    ship = place_ship_type_prompt
-    p ship
+    @board.render
+    # ship = place_ship_type_prompt
+    place_ship_type_prompt
+    # p ship
   end
 end
-board = Board.new
-board.grid[1][1] = :BB
-p1 = HumanPlayer.new("name",board)
-# p1.place_ships
-p1.place_ship_location_prompt(:DD, [0,0])
+# board = Board.new
+# board.grid[1][1] = :BB
+p1 = HumanPlayer.new("name",Board.new)
+p1.place_ships
+p1.board.render
+p1.attack_prompt
+# p1.place_ship_location_prompt(:DD, [0,0])
