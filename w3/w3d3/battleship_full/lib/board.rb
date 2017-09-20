@@ -6,11 +6,11 @@ class Board
   def initialize(grid = Board.default_grid)
     @grid = grid
     @SHIPS = {
-      :carrier => 5,
-      :battleship => 4,
-      :submarine => 3,
-      :cruiser => 3,
-      :destroyer => 2,
+      :CV => 5,
+      :BB => 4,
+      :SS => 3,
+      :CC => 3,
+      :DD => 1,
       :s => 1
     }
   end
@@ -100,8 +100,9 @@ class Board
     # false
   end
   def empty?(pos=false)
-    return true if pos && @SHIPS[@grid[pos[0]][pos[1]]].nil?
-    return true if self.count == 0
+
+    return true if pos == false || @SHIPS[@grid[pos[0]][pos[1]]].nil?
+    # return true if self.count == 0
     false
   end
   def full?
