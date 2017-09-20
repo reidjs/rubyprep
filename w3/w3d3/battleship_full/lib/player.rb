@@ -72,25 +72,26 @@ class HumanPlayer
     x = pos[0]
     y = pos[1]
     size = board.SHIPS[ship]
+    rot == "vertical" ? xsize = size : xsize = 0
+    rot == "horizontal" ? ysize = size : ysize = 0
     if input == "\e" then
       input << STDIN.read_nonblock(3) rescue nil
       input << STDIN.read_nonblock(2) rescue nil
     end
-    p "input: #{input}"
-    if input == "\e[A" && x - size >= 0
+    if input == "\e[A" && x > 0
       # board.grid[x][y] = nil
       # place_ship_location_prompt(ship, [x-1,y])
       x -= 1
-    elsif input == "\e[B" && x + size < board.grid.length
+    elsif input == "\e[B" && x + xsize < (board.grid.length - 1)
       # board.grid[x][y] = nil
       # place_ship_location_prompt(ship, [x+1,y])
 
       x += 1
-    elsif input == "\e[C" && y + size < board.grid.length
+    elsif input == "\e[C" && y+ysize < (board.grid.length - 1)
       # board.grid[x][y] = nil
       # place_ship_location_prompt(ship, [x,y+1])
       y += 1
-    elsif input == "\e[D" && x - size >= 0
+    elsif input == "\e[D" && y > 0
       # board.grid[x][y] = nil
       y -= 1
       # place_ship_location_prompt(ship, [x,y-1])
@@ -101,6 +102,7 @@ class HumanPlayer
     elsif input == '\u0003' || input == "\e"
       return false
     end
+    p "in: #{input}, x: #{x}, y: #{y}, size:#{size}, rot: #{rot}"
     place_ship_location_prompt(ship, [x, y], rot)
   end
 
@@ -113,4 +115,4 @@ end
 board = Board.new
 p1 = HumanPlayer.new("name",board)
 # p1.place_ships
-p1.place_ship_location_prompt(:destroyer, [0,0])
+p1.place_ship_location_prompt(:battleship, [0,0])
