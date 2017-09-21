@@ -1,6 +1,22 @@
 require_relative "board"
 require_relative "attack_grid"
 require 'io/console'
+module Player
+  attr_accessor :finished_setting_ships
+  def initialize(board)
+    @finished_setting_ships = false
+    @ships_to_place = board.SHIPS.keys
+    @board = board
+  end
+end
+class ComputerPlayer
+  include Player
+  def initialize(board, a)
+    p a
+  end
+end
+x = ComputerPlayer.new(Board.new, 5)
+p x.finished_setting_ships
 class HumanPlayer
   attr_accessor :name, :board, :attack_board, :finished_setting_ships
   def initialize(name, board)
@@ -61,7 +77,8 @@ class HumanPlayer
     if !@ships_to_place.include?(ship)
       place_ship_type_prompt
     else
-      place_ship_location_prompt(ship)
+      return ship
+      # place_ship_location_prompt(ship)
     end
   end
   def get_array_of_spaces_taken_by_ship(ship, pos, rot)
@@ -187,6 +204,7 @@ class HumanPlayer
         if @ships_to_place.length > 0
           return place_ships
         else
+          @finished_setting_ships = true
           return 0
         end
       end
@@ -220,7 +238,8 @@ class HumanPlayer
   def place_ships
     @board.render
     # ship = place_ship_type_prompt
-    place_ship_type_prompt
+    ship = place_ship_type_prompt
+    place_ship_location_prompt(ship)
     @finished_setting_ships = true
     # p ship
   end

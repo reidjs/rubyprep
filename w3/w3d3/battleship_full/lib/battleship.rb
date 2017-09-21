@@ -1,5 +1,5 @@
 class BattleshipGame
-  attr_reader :board, :player
+  attr_reader :board, :player, :computer
   def initialize(player, board)
     @player = player
     @board = board
@@ -16,13 +16,14 @@ class BattleshipGame
   end
   #does this count as hard coding? it didn't specify player input
   def play_turn
-    if @player.finished_setting_ships
+    if @player.finished_setting_ships == true
       p "player should attack"
     else
       @player.send(:place_ships)
       # @player.send(:get_play)
       # self.send(:attack, [1,1])
-
     end
   end
+  def place_ships
+    @player.send(:place_ships)
 end

@@ -6,8 +6,8 @@ class Board
   def initialize(grid = Board.default_grid)
     @grid = grid
     @SHIPS = {
-      :CV => 4
-      # :BB => 3,
+      :CV => 4,
+      :BB => 3
       # :SS => 2,
       # :CC => 2,
       # :DD => 1,
