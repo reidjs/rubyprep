@@ -6,7 +6,7 @@ class Board
   def initialize(grid = Board.default_grid)
     @grid = grid
     @SHIPS = {
-      :CV => 4,
+      :CV => 4
       # :BB => 3,
       # :SS => 2,
       # :CC => 2,
@@ -80,13 +80,13 @@ class Board
   def distance(a, b)
     Integer(Math.sqrt(((b[0] - a[0])**2 + (b[1] - a[1])**2)))
   end
-  def count
-    count = 0
-    @grid.each do |row|
-      count += row.count(:s)
-    end
-    count
-  end
+  # def count
+  #   count = 0
+  #   @grid.each do |row|
+  #     count += row.count(:s)
+  #   end
+  #   count
+  # end
   #similar to empty but also checks grid dimensions
   def can_occupy_cell?(pos=false)
     # p pos
@@ -118,6 +118,14 @@ class Board
     x = rand(@grid.length)
     y = rand(@grid.length)
     @grid[x][y] = "X"
+  end
+  def attack(pos)
+    if @grid[pos[0]][pos[1]] != nil
+      p "hit"
+      return true
+    end
+    p "miss"
+    return false
   end
   def render
     @grid.each do |row|

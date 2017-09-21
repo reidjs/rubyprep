@@ -2,12 +2,13 @@ require_relative "board"
 require_relative "attack_grid"
 require 'io/console'
 class HumanPlayer
-  attr_accessor :name, :board, :attack_board
+  attr_accessor :name, :board, :attack_board, :finished_setting_ships
   def initialize(name, board)
     @name = name
     @board = board
     @attack_grid = Attack_Grid.new
     @ships_to_place = board.SHIPS.keys
+    @finished_setting_ships = false
   end
 
   def get_play
@@ -34,7 +35,7 @@ class HumanPlayer
     p "should be empty:"
     @attack_grid.render
     puts "Select a space to attack: "
-    # get
+    get_and_handle_player_attack_input
   end
   def place_ship_type_prompt
     # byebug if @ships_to_place.length == 0
@@ -73,6 +74,7 @@ class HumanPlayer
     # render_ship_on_board(ship, @board.traverse(pos, [x2, y2]))
     @board.traverse(pos, [x2, y2])
   end
+
   #pos is the top, leftmost position of the ship
   def place_ship_location_prompt(ship, pos=[0,0], rot="vertical")
     @board.clear_temp_spaces
@@ -81,7 +83,7 @@ class HumanPlayer
     puts "Use the arrows to move the ship, space to rotate, enter to confirm"
     #get input from the player
     # input = STDIN.getch
-    handle_player_ship_placement_input(ship, pos, rot)
+    get_and_handle_player_ship_placement_input(ship, pos, rot)
     # move_ship_on_board(input, @board.traverse())
   end
   #send in array of positions occupied by the ship
@@ -117,10 +119,41 @@ class HumanPlayer
       return "enter"
     end
   end
-  def handle_player_attack_input(pos)
-
+  def get_and_handle_player_attack_input(pos=[0,0])
+    x = pos[0]
+    y = pos[1]
+    # @attack_grid[x][y] = "X"
+    @attack_grid.clear_cursor
+    @attack_grid.set_cursor(pos)
+    @attack_grid.render
+    input = get_and_interpret_player_input
+    if input == "escape"
+      return false
+    end
+    #TO DO: Add logic here to move cursor along attack grid
+    if input == "spacebar" || input == "enter"
+      #attack that cell if hasn't already been attacked
+      p "ATTACK! #{pos}"
+      if (@board.attack(pos))
+        @attack_grid.mark_success(@board[pos], pos)
+      else
+        @attack_grid.mark_fail(pos)
+      end
+    end
+    if input == "up" && x - 1 >= 0
+      x -= 1
+    elsif input == "down" && x + 1 < @attack_grid.grid.length
+      x += 1
+    elsif input == "right" && y + 1 < @attack_grid.grid.length
+      y += 1
+    elsif input == "left" && y - 1 >= 0
+      y -= 1
+    end
+    p "x: #{x} y: #{y}"
+    get_and_handle_player_attack_input([x,y])
+    #call handle player attack input with new position
   end
-  def handle_player_ship_placement_input(ship, pos, rot)
+  def get_and_handle_player_ship_placement_input(ship, pos, rot)
     x = pos[0]
     y = pos[1]
     size = board.SHIPS[ship]
@@ -188,13 +221,14 @@ class HumanPlayer
     @board.render
     # ship = place_ship_type_prompt
     place_ship_type_prompt
+    @finished_setting_ships = true
     # p ship
   end
 end
 # board = Board.new
 # board.grid[1][1] = :BB
-p1 = HumanPlayer.new("name",Board.new)
-p1.place_ships
-p1.board.render
-p1.attack_prompt
+# p1 = HumanPlayer.new("name",Board.new)
+# p1.place_ships
+# p1.board.render
+# p1.attack_prompt
 # p1.place_ship_location_prompt(:DD, [0,0])
