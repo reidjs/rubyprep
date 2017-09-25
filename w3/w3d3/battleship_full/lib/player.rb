@@ -3,10 +3,10 @@ require_relative "attack_grid"
 require 'io/console'
 class Player
   # attr_accessor :ships_to_place, :board
-  attr_reader :ships_to_place, :board
+  attr_reader :ships_to_place, :board, :placed_ships
   def initialize(board=Board.new)
     @SHIPS = {
-      # :CV => 4,
+      :CV => 4,
       :BB => 3
       # :SS => 2,
       # :CC => 2,
@@ -14,6 +14,7 @@ class Player
     }
     @ships_to_place = @SHIPS.keys
     @board = board
+    @placed_ships = []
   end
   def finished_setting_ships?
     @ships_to_place.length < 1
@@ -22,8 +23,28 @@ class Player
     # byebug
     @ships_to_place.pop
   end
+  def remove_ship_from_ships_to_place(ship)
+    @ships_to_place.delete(ship)
+  end
+  def place_ship_at_location(ship, pos=[0,0], rot="horizontal")
+    spaces = get_array_of_spaces_taken_by_ship(ship, pos, rot)
+    #if any spaces are already occupied, return false
+    spaces.each do |e|
+      # p "#{e}, empty? #{@board.empty?(e)}"
+      #this should go to the ship placement screen
+      return false if !@board.empty?(e)
+    end
+    #otherwise, fill those spaces with the ship name
+    spaces.each do |e|
+      # p "#{e}"
+      @board.grid[e[0]][e[1]] = ship
+    end
+    #this should go to the Pick the next ship to place screen
+    @placed_ships << ship
+    true
+  end
 end
-class ComputerPlayer < Player
+class Computer < Player
   # attr_accessor :finished_setting_ships, :board
   # # include Player
   # def initialize(board, ships_to_place)
@@ -33,29 +54,86 @@ class ComputerPlayer < Player
   def initialize
     @board = Player.new.board
     @ships_to_place = Player.new.ships_to_place
+    @placed_ships = Player.new.placed_ships
     # @ships_to_place = [1,2]
   end
-  def ships_to_place
-    @ships_to_place
-  end
-  def place_ship(ship)
-    @ships_to_place = []
-  end
-  def pop_next_ship
-    @ships_to_place.pop
-  end
+  # def ships_to_place
+  #   @ships_to_place
+  # end
+  # def place_ship(ship)
+  #   @ships_to_place = []
+  # end
+  # def pop_next_ship
+  #   @ships_to_place.pop
+  # end
 end
-x = ComputerPlayer.new
-y = ComputerPlayer.new
+# x = ComputerPlayer.new
+# y = ComputerPlayer.new
 # p y.ships_to_place2
 # p x.board
 # y = Player.new(Board.new)
 # p y.ships_to_place
-p x.ships_to_place
-x.pop_next_ship
-# x.place_ship_at_location(ship)
-p x.finished_setting_ships?
-p y.finished_setting_ships?
+# p x.ships_to_place
+# next_ship = x.pop_next_ship_to_place
+# p next_ship
+# x.place_ship(next_ship)
+# p x.placed_ships
+# # x.place_ship_at_location(ship)
+# p x.finished_setting_ships?
+# p y.finished_setting_ships?
+
+class Human < Player
+  def initialize
+    @board = Player.new.board
+    @ships_to_place = Player.new.ships_to_place
+    @placed_ships = Player.new.placed_ships
+  end
+  def place_ships
+    @board.render
+    while !finished_setting_ships?
+      ship = place_ship_type_prompt
+      location = place_ship_location_prompt
+      p "Player is placing #{ship} at #{location}"
+      place_ship_at_location(ship, location)
+      remove_ship_from_ships_to_place(ship)
+    end
+    p "Player is finished setting their ships"
+    # place_ship_location_prompt(ship)
+  end
+  def place_ship_type_prompt
+    # byebug if @ships_to_place.length == 0
+    # return false if @ships_to_place.length == 0
+    ship_names = {
+      :DD => "(D)estroyer [DD]",
+      :CC => "(C)ruiser [CC]",
+      :CV => "c(A)rrier [CV]",
+      :BB => "(B)attleship [BB]",
+      :SS => "(S)ubmarine [SS]"
+    }
+    str=""
+    @ships_to_place.each do |e|
+      str+=ship_names[e]+"\t"
+    end
+    puts "Enter a ship to place: #{str} "
+    input = gets.downcase.chomp
+    ship = :DD if input == "d" || input == "destroyer" || input == "dd"
+    ship = :CC if input == "c" || input == "cruiser" || input == "cc"
+    ship = :CV if input == "a" || input == "carrier" || input == "cv"
+    ship = :BB if input == "b" || input == "battleship" || input == "bb"
+    ship = :SS if input == "s" || input == "submarine" || input == "ss"
+    if !@ships_to_place.include?(ship)
+      place_ship_type_prompt
+    else
+      return ship
+      # place_ship_location_prompt(ship)
+    end
+  end
+
+end
+
+x = Human.new
+x.place_ships
+
 class HumanPlayer
   attr_accessor :name, :board, :attack_board, :finished_setting_ships
   def initialize(name, board)
