@@ -66,7 +66,7 @@ class Array
   #   repeat ? self.bubble_sort! : self
   # end
   def bubble_sort!(&prc)
-    prc ||= Proc.new{|a, b| a <=> b}
+    prc ||= Proc.new{|a, b|a a <=> b}
     #when we call the prc it will return -1 if left is smaller,
     #0 if equal, and 1 if left is bigger
     sorted = false
