@@ -24,8 +24,37 @@ describe "ComputerPlayer" do
         place_marks([[0, 0], [1, 0]], :O)
         comp.mark = :O
         comp.display(board)
-
         expect(comp.get_move).to eq([2, 0])
+      end
+      it "should return the winning move" do
+        place_marks([[0, 0], [2, 0]], :O)
+        comp.mark = :O
+        comp.display(board)
+        expect(comp.get_move).to eq([1, 0])
+      end
+      it "should return the winning move" do
+        place_marks([[1, 0], [2, 0]], :O)
+        comp.mark = :O
+        comp.display(board)
+        expect(comp.get_move).to eq([0, 0])
+      end
+      it "should return the winning move" do
+        place_marks([[0, 0], [0, 1]], :O)
+        comp.mark = :O
+        comp.display(board)
+        expect(comp.get_move).to eq([0, 2])
+      end
+      it "should return the winning move" do
+        place_marks([[0, 0], [0, 2]], :O)
+        comp.mark = :O
+        comp.display(board)
+        expect(comp.get_move).to eq([0, 1])
+      end
+      it "should return the winning move" do
+        place_marks([[0, 1], [0, 2]], :O)
+        comp.mark = :O
+        comp.display(board)
+        expect(comp.get_move).to eq([0, 0])
       end
     end
 

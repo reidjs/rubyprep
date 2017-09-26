@@ -1,3 +1,4 @@
+require "byebug"
 class ComputerPlayer
   attr_reader :name, :board
   attr_accessor :mark
@@ -17,23 +18,38 @@ class ComputerPlayer
   end
   #random unless a winning move is available
   def get_move
+    winning_move = false
+    winning_row = -1
+    winning_col = -1
     #look for two in a row
     @board.grid.each_with_index do |row, i|
       if win_check(row)
-        p "should play row:", i
+        # p "should play row:", i
+        winning_row = i
+        winning_col = row.index(nil)
+        # p row
+        winning_move = true
       end
     end
     @board.grid.transpose.each_with_index do |col, i|
       if win_check(col)
-        p "should play col:", @board.grid.length - i - 1
+        # p "should play col:", @board.grid.length - i - 1
+        winning_row = col.index(nil)
+        # winning_col = @board.grid.length - i - 1
+        winning_col = i
+        # p "row: #{winning_row}, col: #{winning_col}"
+        winning_move = true
       end
     end
     backslash = []
     @board.grid.each_with_index do |row, j|
       backslash << row[@board.grid.length - j - 1]
+
     end
     if win_check(backslash)
       p "should play diag:"
+      # p backslash
+      winning_move = true
     end
     frontslash = []
     @board.grid.each_with_index do |row, i|
@@ -41,7 +57,15 @@ class ComputerPlayer
     end
     if win_check(frontslash)
       p "should play diag:"
+      # p frontslash
+      winning_move = true
     end
-    [rand(@board.grid.length), rand(@board.grid.length)]
+    # byebug
+    if winning_move
+      p "There is a winning move"
+      [winning_row, winning_col]
+    else
+      [rand(@board.grid.length), rand(@board.grid.length)]
+    end
   end
 end
