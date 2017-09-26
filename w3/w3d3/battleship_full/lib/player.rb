@@ -128,6 +128,50 @@ class Human < Player
       # place_ship_location_prompt(ship)
     end
   end
+  def place_ship_location_prompt(ship, pos=[0,0], rot="vertical")
+    @board.clear_temp_spaces
+    spaces = get_array_of_spaces_taken_by_ship(ship, pos, rot)
+    render_ship_on_board(ship, spaces)
+    puts "Use the arrows to move the ship, space to rotate, enter to confirm"
+    #get input from the player
+    # input = STDIN.getch
+    input = get_player_input
+    get_and_handle_player_ship_placement_input(ship, pos, rot)
+    # move_ship_on_board(input, @board.traverse())
+  end
+  #send in array of positions occupied by the ship
+  def render_ship_on_board(ship, arr)
+    # p arr
+    arr.each do |e|
+      if @board.empty?([e[0], e[1]])
+        @board.grid[e[0]][e[1]] = "X"
+      end
+    end
+    @board.render
+  end
+  #returns keypress
+  def get_player_input
+    input = STDIN.getch
+    if input == "\e" then
+      input << STDIN.read_nonblock(3) rescue nil
+      input << STDIN.read_nonblock(2) rescue nil
+    end
+    if input == "\e[A"
+      return "up"
+    elsif input == "\e[B"
+      return "down"
+    elsif input == "\e[C"
+      return "right"
+    elsif input == "\e[D"
+      return "left"
+    elsif input == " "
+      return "spacebar"
+    elsif input == '\u0003' || input == "\e"
+      return "escape"
+    elsif input == "\r"
+      return "enter"
+    end
+  end
 
 end
 
