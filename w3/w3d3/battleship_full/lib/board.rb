@@ -17,7 +17,7 @@ class Board
     default_size = 10
     g = []
     default_size.times do
-      g << Array.new(default_size)
+      g << Array.new(default_size, "[ ]")
     end
     g
   end
@@ -53,7 +53,7 @@ class Board
   def clear_temp_spaces
     @grid.each_index do |i|
       @grid[i].each_index do |j|
-        @grid[j][i] = nil if @grid[j][i] == "X"
+        @grid[j][i] = "[ ]" if @grid[j][i] == "[X]"
       end
     end
   end
@@ -110,8 +110,8 @@ class Board
     # false
   end
   def empty?(pos=false)
-
-    return true if pos == false || @SHIPS[@grid[pos[0]][pos[1]]].nil?
+    cell = @grid[pos[0]][pos[1]]
+    return true if pos == false || cell == "[ ]" || cell == "[X]"
     # return true if self.count == 0
     false
   end
@@ -138,9 +138,22 @@ class Board
     p "miss"
     return false
   end
+  def render_array_on_grid(char, arr)
+    clear_temp_spaces
+    arr.each do |e|
+      if empty?([e[0], e[1]])
+        @grid[e[0]][e[1]] = char
+      end
+    end
+    render
+  end
   def render
-    @grid.each do |row|
-      p row
+    # clear_temp_spaces
+    @grid.each_index do |row|
+      @grid[row].each_index do |col|
+        print self.[]([row,col])
+      end
+      print "\n"
     end
   end
 end

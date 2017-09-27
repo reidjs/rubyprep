@@ -37,7 +37,7 @@ class Player
     #otherwise, fill those spaces with the ship name
     spaces.each do |e|
       # p "#{e}"
-      @board.grid[e[0]][e[1]] = ship
+      @board.grid[e[0]][e[1]] = "[#{ship.to_s.chars[0]}]"
     end
     #this should go to the Pick the next ship to place screen
     @placed_ships << ship
@@ -102,6 +102,7 @@ class Human < Player
       place_ship_at_location(ship, location)
       # remove_ship_from_ships_to_place(ship)
     end
+    @board.render
     p "Player is finished setting their ships"
     # place_ship_location_prompt(ship)
   end
@@ -127,9 +128,9 @@ class Human < Player
     input
   end
   def place_ship_location_prompt(ship, pos=[0,0], rot="vertical")
-    @board.clear_temp_spaces
+    # @board.clear_temp_spaces
     spaces = get_array_of_spaces_taken_by_ship(ship, pos, rot)
-    render_ship_on_board(ship, spaces)
+    render_ship_on_board(spaces)
     puts "Use the arrows to move the ship, space to rotate, enter to confirm"
     #get input from the player
     # input = STDIN.getch
@@ -139,14 +140,15 @@ class Human < Player
     # move_ship_on_board(input, @board.traverse())
   end
   #send in array of positions occupied by the ship
-  def render_ship_on_board(ship, arr)
+  def render_ship_on_board(arr)
     # p arr
-    arr.each do |e|
-      if @board.empty?([e[0], e[1]])
-        @board.grid[e[0]][e[1]] = "X"
-      end
-    end
-    @board.render
+    # arr.each do |e|
+    #   if @board.empty?([e[0], e[1]])
+    #     @board.grid[e[0]][e[1]] = "[X]"
+    #   end
+    # end
+    # @board.render
+    @board.render_array_on_grid("[X]", arr)
   end
   def get_ship_type_input
     input = gets.downcase.chomp
@@ -208,16 +210,6 @@ class Human < Player
       return false
     elsif input == "enter"
       placed_ship = place_ship_at_location(ship, pos, rot)
-      # if place_ship_at_location(ship, pos, rot)
-      #   if @ships_to_place.length > 0
-      #     return place_ships
-      #   else
-      #     @finished_setting_ships = true
-      #     return 0
-      #   end
-      # end
-      # place_ships if  && @ships_to_place.length > 0
-      # place_ships if @ships_to_place.length > 0
     end
     p "in: #{input}, x: #{x}, y: #{y}, size:#{size}, rot: #{rot}"
     placed_ship ? [x,y] : place_ship_location_prompt(ship, [x, y], rot)
@@ -301,7 +293,7 @@ class HumanPlayer
   def place_ship_location_prompt(ship, pos=[0,0], rot="vertical")
     @board.clear_temp_spaces
     spaces = get_array_of_spaces_taken_by_ship(ship, pos, rot)
-    render_ship_on_board(ship, spaces)
+    render_ship_on_board(spaces)
     puts "Use the arrows to move the ship, space to rotate, enter to confirm"
     #get input from the player
     # input = STDIN.getch
