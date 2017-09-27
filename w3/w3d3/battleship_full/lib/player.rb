@@ -17,6 +17,9 @@ class Player
     @placed_ships = []
     @attacked_spaces = []
   end
+  def lost?
+    @board.lost?
+  end
   def finished_setting_ships?
     @ships_to_place.length < 1
   end
@@ -73,6 +76,12 @@ class Computer < Player
     @attacked_spaces = []
     # @ships_to_place = [1,2]
   end
+  def place_ships
+    place_ships_randomly
+  end
+  def attack_prompt(other_board)
+    fire_randomly(other_board)
+  end
   def place_ships_randomly
     num_ships = @ships_to_place.length
     next_ship = @ships_to_place.pop
@@ -96,11 +105,23 @@ class Computer < Player
     place_ship_at_location(ship, [rand_x, rand_y], rand_rot)
   end
   def fire_randomly(other_board)
+    p "******COMPUTER IS ATTACKING*******"
+    p "******COMPUTER IS ATTACKING*******"
+    p "******COMPUTER IS ATTACKING*******"
+    p "******COMPUTER IS ATTACKING*******"
+    p "******COMPUTER IS ATTACKING*******"
+    # other_board.render
     rand_x = (rand*(@board.grid.length)).floor
     rand_y = (rand*(@board.grid.length)).floor
     if !attack(other_board, [rand_x, rand_y])
-      fire_randomly(other_board)
+      return fire_randomly(other_board)
     end
+    p "******COMPUTER IS ATTACKING*******"
+    p "******COMPUTER IS ATTACKING*******"
+    p "******COMPUTER IS ATTACKING*******"
+    p "******COMPUTER IS ATTACKING*******"
+    p "******COMPUTER IS ATTACKING*******"
+    # p "Computer fired on #{rand_x}, #{rand_y}"
   end
   # def ships_to_place
   #   @ships_to_place
@@ -157,10 +178,14 @@ class Human < Player
     # place_ship_location_prompt(ship)
   end
   def attack_prompt(other_board, pos=[0,0])
+    p "Your Board:"
+    @board.render
+    p "Attack grid: Use the arrow keys to move the cursor, then spacebar to fire"
     x = pos[0]
     y = pos[1]
     @attack_grid.set_cursor(pos)
     @attack_grid.render
+    end_turn = false
     input = get_player_keypress
     if input == "spacebar" || input == "enter"
       #if they try a previously tried cell
@@ -174,6 +199,7 @@ class Human < Player
         p "Hit #{other_board_cell_value}"
         @attack_grid.mark_hit(pos)
       end
+      end_turn = true
     elsif input == "up" && x > 0
       x -= 1
     elsif input == "down" && x < (@attack_grid.grid.length - 1)
@@ -183,9 +209,9 @@ class Human < Player
     elsif input == "left" && y > 0
       y -= 1
     elsif input == "escape"
-      return false
+      abort
     end
-    attack_prompt(other_board, [x,y])
+    attack_prompt(other_board, [x,y]) if !end_turn
   end
   def place_ship_type_prompt
     # byebug if @ships_to_place.length == 0
@@ -233,11 +259,11 @@ class Human < Player
   end
   def get_ship_type_input
     input = gets.downcase.chomp
-    ship = :DD if input == "d" || input == "destroyer" || input == "dd"
-    ship = :CC if input == "c" || input == "cruiser" || input == "cc"
-    ship = :CV if input == "a" || input == "carrier" || input == "cv"
-    ship = :BB if input == "b" || input == "battleship" || input == "bb"
-    ship = :SS if input == "s" || input == "submarine" || input == "ss"
+    ship = :D if input == "d" || input == "destroyer" || input == "dd"
+    ship = :C if input == "c" || input == "cruiser" || input == "cc"
+    ship = :V if input == "a" || input == "carrier" || input == "cv"
+    ship = :B if input == "b" || input == "battleship" || input == "bb"
+    ship = :S if input == "s" || input == "submarine" || input == "ss"
     ship
   end
   #returns keypress
@@ -258,7 +284,7 @@ class Human < Player
     elsif input == " "
       return "spacebar"
     elsif input == '\u0003' || input == "\e"
-      return "escape"
+      abort #escape key
     elsif input == "\r"
       return "enter"
     end
@@ -298,13 +324,12 @@ class Human < Player
 
 end
 
-x = Human.new
-y = Computer.new
-y.place_ships_randomly
-p y.board.grid
-x.attack_prompt(y.board)
+# x = Human.new
+# y = Computer.new
+# y.place_ships_randomly
+# # p y.lost?
+# x.attack_prompt(y.board)
 
-x.attack_prompt(y.board)
 # x.place_ships
 
 class HumanPlayer

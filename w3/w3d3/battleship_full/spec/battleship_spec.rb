@@ -51,4 +51,5 @@ describe BattleshipGame do
       game.play_turn
     end
   end
+  
 end

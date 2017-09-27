@@ -125,11 +125,16 @@ class Board
     # return true if self.count == 0
     false
   end
-  def full?
-    return true if (self.count == @grid.length**2)
-  end
-  def won?
-    empty?
+  # def full?
+  #   return true if (self.count == @grid.length**2)
+  # end
+  def lost?
+    @grid.each_index do |i|
+      @grid[i].each_index do |j|
+        return false if @grid[j][i] != "[ ]"
+      end
+    end
+    true
   end
   def [](pos)
     @grid[pos[0]][pos[1]]
@@ -142,7 +147,10 @@ class Board
   end
   def attack(pos)
     cell = @grid[pos[0]][pos[1]]
-    @attack_values[cell]
+    value = @attack_values[cell]
+    @grid[pos[0]][pos[1]] = "[ ]"
+    # byebug if value != "Miss"
+    value
     # if @attack_values[cell] != nil
     #   p "hit #{}"
     #   return true
