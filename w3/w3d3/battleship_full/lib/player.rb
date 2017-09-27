@@ -6,9 +6,9 @@ class Player
   attr_reader :ships_to_place, :board, :placed_ships, :ship_sizes, :attacked_spaces
   def initialize(board=Board.new)
     @ship_sizes = {
-      :CV => 4,
-      :BB => 3,
-      :SS => 2
+      :V => 4,
+      :B => 3,
+      :S => 2
       # :CC => 2,
       # :DD => 1,
     }
@@ -37,7 +37,6 @@ class Player
     p "Firing at #{pos}"
     @attacked_spaces << pos
     other_board.attack(pos)
-    true
   end
   #BOOLEAN METHOD, consider adding ? to name.
   def place_ship_at_location(ship, pos=[0,0], rot="horizontal")
@@ -113,31 +112,32 @@ class Computer < Player
   #   @ships_to_place.pop
   # end
 end
-x = Computer.new
-x.place_ships_randomly
-other_board = Board.new
-# x.attack(other_board, [1,0])
-x.fire_randomly(other_board)
-# y = ComputerPlayer.new
-# p y.ships_to_place2
-# p x.board
-# y = Player.new(Board.new)
-# p y.ships_to_place
-# p x.ships_to_place
-# next_ship = x.pop_next_ship_to_place
-# p next_ship
-# x.place_ship(next_ship)
-# p x.placed_ships
-# # x.place_ship_at_location(ship)
-# p x.finished_setting_ships?
-# p y.finished_setting_ships?
-
+# x = Computer.new
+# x.place_ships_randomly
+# other_board = Board.new
+# # x.attack(other_board, [1,0])
+# x.fire_randomly(other_board)
+# # y = ComputerPlayer.new
+# # p y.ships_to_place2
+# # p x.board
+# # y = Player.new(Board.new)
+# # p y.ships_to_place
+# # p x.ships_to_place
+# # next_ship = x.pop_next_ship_to_place
+# # p next_ship
+# # x.place_ship(next_ship)
+# # p x.placed_ships
+# # # x.place_ship_at_location(ship)
+# # p x.finished_setting_ships?
+# # p y.finished_setting_ships?
+# y = Human.new
 class Human < Player
   def initialize
     @board = Player.new.board
     @ships_to_place = Player.new.ships_to_place
     @placed_ships = Player.new.placed_ships
     @ship_sizes = Player.new.ship_sizes
+    @attack_grid = Attack_Grid.new(@board.grid.length)
     @attacked_spaces = []
   end
   def place_ships
@@ -155,6 +155,37 @@ class Human < Player
     @board.render
     p "Player is finished setting their ships"
     # place_ship_location_prompt(ship)
+  end
+  def attack_prompt(other_board, pos=[0,0])
+    x = pos[0]
+    y = pos[1]
+    @attack_grid.set_cursor(pos)
+    @attack_grid.render
+    input = get_player_keypress
+    if input == "spacebar" || input == "enter"
+      #if they try a previously tried cell
+      other_board_cell_value = attack(other_board, pos)
+      if other_board_cell_value == false
+        return attack_prompt(other_board, pos)
+      elsif other_board_cell_value == "Miss"
+        p "Missed!"
+        @attack_grid.mark_miss(pos)
+      else
+        p "Hit #{other_board_cell_value}"
+        @attack_grid.mark_hit(pos)
+      end
+    elsif input == "up" && x > 0
+      x -= 1
+    elsif input == "down" && x < (@attack_grid.grid.length - 1)
+      x += 1
+    elsif input == "right" && y < (@attack_grid.grid.length - 1)
+      y += 1
+    elsif input == "left" && y > 0
+      y -= 1
+    elsif input == "escape"
+      return false
+    end
+    attack_prompt(other_board, [x,y])
   end
   def place_ship_type_prompt
     # byebug if @ships_to_place.length == 0
@@ -267,7 +298,13 @@ class Human < Player
 
 end
 
-# x = Human.new
+x = Human.new
+y = Computer.new
+y.place_ships_randomly
+p y.board.grid
+x.attack_prompt(y.board)
+
+x.attack_prompt(y.board)
 # x.place_ships
 
 class HumanPlayer

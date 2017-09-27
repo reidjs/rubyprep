@@ -1,15 +1,18 @@
 #similar to the board, but with limited functionality
 require_relative "board"
 class Attack_Grid
-  attr_accessor :grid, :cursor_pos
-  def initialize(grid = Attack_Grid.default_grid)
-    @grid = grid
+  attr_accessor :grid, :cursor_pos, :grid_size
+  def initialize(grid_size = 10)
+    @grid_size = grid_size
+    @grid = default_grid
+
   end
-  def self.default_grid
-    default_size = 10
+  def default_grid
+    # grid_size = @grid_size
+
     g = []
-    default_size.times do
-      g << Array.new(default_size, "O")
+    @grid_size.times do
+      g << Array.new(grid_size, "O")
     end
     g
   end
@@ -27,12 +30,12 @@ class Attack_Grid
       end
     end
   end
-  def mark_success(boat, pos)
-    p @grid[pos[0]][pos[1]]
-    @grid[pos[0]][pos[1]] = "S"
+  def mark_hit(pos)
+    # p @grid[pos[0]][pos[1]]
+    @grid[pos[0]][pos[1]] = "H"
   end
-  def mark_fail(pos)
-    @grid[pos[0]][pos[1]] = "F"
+  def mark_miss(pos)
+    @grid[pos[0]][pos[1]] = "X"
   end
   def render
     # p [""]

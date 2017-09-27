@@ -5,18 +5,19 @@ class Board
   attr_reader :grid, :SHIPS
   def initialize(grid = Board.default_grid)
     @grid = grid
-    @SHIPS = {
-      # :CV => 4,
-      :BB => 3
-      # :SS => 2,
-      # :CC => 2,
-      # :DD => 1,
-    }
+    # @SHIPS = {
+    #   # :CV => 4,
+    #   :BB => 3
+    #   # :SS => 2,
+    #   # :CC => 2,
+    #   # :DD => 1,
+    # }
     @attack_values = {
-      "[ ]" => "miss",
-      "V" => "Carrier",
-      "B" => "Battleship",
-      "S" => "Submarine"
+      "[ ]" => "Miss",
+      "[V]" => "Carrier",
+      "[B]" => "Battleship",
+      "[C]" => "Cruiser",
+      "[S]" => "Submarine"
 
     }
   end
@@ -141,7 +142,7 @@ class Board
   end
   def attack(pos)
     cell = @grid[pos[0]][pos[1]]
-    p @attack_values[cell]
+    @attack_values[cell]
     # if @attack_values[cell] != nil
     #   p "hit #{}"
     #   return true
