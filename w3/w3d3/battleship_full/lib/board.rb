@@ -12,6 +12,13 @@ class Board
       # :CC => 2,
       # :DD => 1,
     }
+    @attack_values = {
+      "[ ]" => "miss",
+      "V" => "Carrier",
+      "B" => "Battleship",
+      "S" => "Submarine"
+
+    }
   end
   def self.default_grid
     default_size = 10
@@ -111,7 +118,7 @@ class Board
   end
   def empty?(pos=false)
     return false if pos.nil? || pos == false
-    p pos
+    # p pos
     cell = @grid[pos[0]][pos[1]]
     return true if pos == false || cell == "[ ]" || cell == "[X]"
     # return true if self.count == 0
@@ -133,12 +140,14 @@ class Board
     @grid[x][y] = "X"
   end
   def attack(pos)
-    if @grid[pos[0]][pos[1]] != nil
-      p "hit"
-      return true
-    end
-    p "miss"
-    return false
+    cell = @grid[pos[0]][pos[1]]
+    p @attack_values[cell]
+    # if @attack_values[cell] != nil
+    #   p "hit #{}"
+    #   return true
+    # end
+    # p "miss"
+    # return false
   end
   def render_array_on_grid(char, arr)
     clear_temp_spaces

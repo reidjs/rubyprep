@@ -3,7 +3,7 @@ require_relative "attack_grid"
 require 'io/console'
 class Player
   # attr_accessor :ships_to_place, :board
-  attr_reader :ships_to_place, :board, :placed_ships, :ship_sizes
+  attr_reader :ships_to_place, :board, :placed_ships, :ship_sizes, :attacked_spaces
   def initialize(board=Board.new)
     @ship_sizes = {
       :CV => 4,
@@ -15,6 +15,7 @@ class Player
     @ships_to_place = @ship_sizes.keys
     @board = board
     @placed_ships = []
+    @attacked_spaces = []
   end
   def finished_setting_ships?
     @ships_to_place.length < 1
@@ -30,7 +31,15 @@ class Player
     ship_size = @ship_sizes[ship]
     @board.get_array_of_spaces(ship_size, pos, rot)
   end
-  #BOOLEAN METHOD
+  def attack(other_board, pos)
+    # p other_board.[]([pos[0], pos[1]])
+    return false if @attacked_spaces.include?(pos)
+    p "Firing at #{pos}"
+    @attacked_spaces << pos
+    other_board.attack(pos)
+    true
+  end
+  #BOOLEAN METHOD, consider adding ? to name.
   def place_ship_at_location(ship, pos=[0,0], rot="horizontal")
     spaces = get_array_of_spaces_taken_by_ship(ship, pos, rot)
     #if any spaces are already occupied, return false
@@ -62,26 +71,37 @@ class Computer < Player
     @ships_to_place = Player.new.ships_to_place
     @placed_ships = Player.new.placed_ships
     @ship_sizes = Player.new.ship_sizes
+    @attacked_spaces = []
     # @ships_to_place = [1,2]
   end
   def place_ships_randomly
+    num_ships = @ships_to_place.length
     next_ship = @ships_to_place.pop
-    while @ships_to_place.length > 0
+    while @placed_ships.length < num_ships
       #if we successfully placed the ship, pick the next one
-      next_ship = @ships_to_place.pop if place_ship_randomly(next_ship)
+      if place_ship_randomly(next_ship)
+        next_ship = @ships_to_place.pop
+      end
     end
-    @board.render
+    # @board.render
     p "Computer has placed their ships."
   end
   def place_ship_randomly(ship)
     (rand*2).floor == 0 ? rand_rot = "vertical" : rand_rot = "horizontal"
-    x_mod = 1
-    y_mod = 1
+    x_mod = 0
+    y_mod = 0
     #to prevent OOB, modify the random num generator by ship size based on orientation
     rand_rot == "horizontal" ? y_mod = @ship_sizes[ship] : x_mod = @ship_sizes[ship]
     rand_x = (rand*((@board.grid.length) - x_mod)).floor
     rand_y = (rand*((@board.grid.length) - y_mod)).floor
     place_ship_at_location(ship, [rand_x, rand_y], rand_rot)
+  end
+  def fire_randomly(other_board)
+    rand_x = (rand*(@board.grid.length)).floor
+    rand_y = (rand*(@board.grid.length)).floor
+    if !attack(other_board, [rand_x, rand_y])
+      fire_randomly(other_board)
+    end
   end
   # def ships_to_place
   #   @ships_to_place
@@ -95,6 +115,9 @@ class Computer < Player
 end
 x = Computer.new
 x.place_ships_randomly
+other_board = Board.new
+# x.attack(other_board, [1,0])
+x.fire_randomly(other_board)
 # y = ComputerPlayer.new
 # p y.ships_to_place2
 # p x.board
@@ -115,6 +138,7 @@ class Human < Player
     @ships_to_place = Player.new.ships_to_place
     @placed_ships = Player.new.placed_ships
     @ship_sizes = Player.new.ship_sizes
+    @attacked_spaces = []
   end
   def place_ships
     @board.render
@@ -136,11 +160,11 @@ class Human < Player
     # byebug if @ships_to_place.length == 0
     # return false if @ships_to_place.length == 0
     ship_names = {
-      :DD => "(D)estroyer [DD]",
-      :CC => "(C)ruiser [CC]",
-      :CV => "c(A)rrier [CV]",
-      :BB => "(B)attleship [BB]",
-      :SS => "(S)ubmarine [SS]"
+      :D => "(D)estroyer [DD]",
+      :C => "(C)ruiser [CC]",
+      :V => "c(A)rrier [CV]",
+      :B => "(B)attleship [BB]",
+      :S => "(S)ubmarine [SS]"
     }
     str=""
     @ships_to_place.each do |e|
