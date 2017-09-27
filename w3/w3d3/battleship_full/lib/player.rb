@@ -123,14 +123,14 @@ class Human < Player
     puts "Enter a ship to place: #{str} "
     input = get_ship_type_input
     if !@ships_to_place.include?(input)
-      place_ship_type_prompt
+      return place_ship_type_prompt
     end
     input
   end
   def place_ship_location_prompt(ship, pos=[0,0], rot="vertical")
     # @board.clear_temp_spaces
     spaces = get_array_of_spaces_taken_by_ship(ship, pos, rot)
-    render_ship_on_board(spaces)
+    render_placeholder_on_board(spaces)
     puts "Use the arrows to move the ship, space to rotate, enter to confirm"
     #get input from the player
     # input = STDIN.getch
@@ -140,7 +140,7 @@ class Human < Player
     # move_ship_on_board(input, @board.traverse())
   end
   #send in array of positions occupied by the ship
-  def render_ship_on_board(arr)
+  def render_placeholder_on_board(arr)
     # p arr
     # arr.each do |e|
     #   if @board.empty?([e[0], e[1]])
