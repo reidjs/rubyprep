@@ -97,7 +97,8 @@ class Human < Player
       ship = place_ship_type_prompt
       #player picks a location to place it
       location = place_ship_location_prompt(ship)
-      p "Player is placing #{ship} at"
+      p "Player is placing #{ship} at #{location}"
+      # byebug
       place_ship_at_location(ship, location)
       # remove_ship_from_ships_to_place(ship)
     end
@@ -219,7 +220,7 @@ class Human < Player
       # place_ships if @ships_to_place.length > 0
     end
     p "in: #{input}, x: #{x}, y: #{y}, size:#{size}, rot: #{rot}"
-    placed_ship ? place_ships : place_ship_location_prompt(ship, [x, y], rot)
+    placed_ship ? [x,y] : place_ship_location_prompt(ship, [x, y], rot)
   end
   def get_array_of_spaces_taken_by_ship(ship, pos, rot)
     ship_size = @ship_sizes[ship]

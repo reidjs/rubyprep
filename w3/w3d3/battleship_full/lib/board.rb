@@ -22,8 +22,10 @@ class Board
     g
   end
   def get_array_of_spaces(size, pos, rot)
+    # byebug
     x = pos[0]
     y = pos[1]
+    # byebug
     rot == "vertical" ? x2 = x + size : x2 = x
     rot == "horizontal" ? y2 = y + size : y2 = y
     # p "sposition: #{pos}, eposition: #{[y2, x2]}"
@@ -31,23 +33,23 @@ class Board
     traverse(pos, [x2, y2])
   end
   #a is starting position, b is ending point
-  def place_ship(ship, a, b)
-    #make sure ship type exists
-    return false if @SHIPS[ship].nil?
-
-    #ensure that ships are only placed horiz or vert
-    #either 'x' pos should be equal or 'y' pos but not both
-    return false if !((a[0] == b[0]) ^ (a[1] == b[1]))
-    #ensure the ship length is equal to distance b/w points
-    return false if @SHIPS[ship] != distance(a,b) + 1
-    #make sure none of the spots are taken already
-    grid_spaces = traverse(a, b)
-    grid_spaces.each {|point| return false if !can_occupy_cell?(point)}
-    #set each grid space to name of ship
-    grid_spaces.each {|point| @grid[point[0]][point[1]] = ship}
-    true
-
-  end
+  # def place_ship(ship, a, b)
+  #   #make sure ship type exists
+  #   return false if @SHIPS[ship].nil?
+  #
+  #   #ensure that ships are only placed horiz or vert
+  #   #either 'x' pos should be equal or 'y' pos but not both
+  #   return false if !((a[0] == b[0]) ^ (a[1] == b[1]))
+  #   #ensure the ship length is equal to distance b/w points
+  #   return false if @SHIPS[ship] != distance(a,b) + 1
+  #   #make sure none of the spots are taken already
+  #   grid_spaces = traverse(a, b)
+  #   grid_spaces.each {|point| return false if !can_occupy_cell?(point)}
+  #   #set each grid space to name of ship
+  #   grid_spaces.each {|point| @grid[point[0]][point[1]] = ship}
+  #   true
+  #
+  # end
   def clear_temp_spaces
     @grid.each_index do |i|
       @grid[i].each_index do |j|
