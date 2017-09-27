@@ -110,6 +110,8 @@ class Board
     # false
   end
   def empty?(pos=false)
+    return false if pos.nil? || pos == false
+    p pos
     cell = @grid[pos[0]][pos[1]]
     return true if pos == false || cell == "[ ]" || cell == "[X]"
     # return true if self.count == 0

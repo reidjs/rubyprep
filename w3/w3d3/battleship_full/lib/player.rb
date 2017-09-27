@@ -7,8 +7,8 @@ class Player
   def initialize(board=Board.new)
     @ship_sizes = {
       :CV => 4,
-      :BB => 3
-      # :SS => 2,
+      :BB => 3,
+      :SS => 2
       # :CC => 2,
       # :DD => 1,
     }
@@ -26,6 +26,11 @@ class Player
   def remove_ship_from_ships_to_place(ship)
     @ships_to_place.delete(ship)
   end
+  def get_array_of_spaces_taken_by_ship(ship, pos, rot)
+    ship_size = @ship_sizes[ship]
+    @board.get_array_of_spaces(ship_size, pos, rot)
+  end
+  #BOOLEAN METHOD
   def place_ship_at_location(ship, pos=[0,0], rot="horizontal")
     spaces = get_array_of_spaces_taken_by_ship(ship, pos, rot)
     #if any spaces are already occupied, return false
@@ -56,7 +61,27 @@ class Computer < Player
     @board = Player.new.board
     @ships_to_place = Player.new.ships_to_place
     @placed_ships = Player.new.placed_ships
+    @ship_sizes = Player.new.ship_sizes
     # @ships_to_place = [1,2]
+  end
+  def place_ships_randomly
+    next_ship = @ships_to_place.pop
+    while @ships_to_place.length > 0
+      #if we successfully placed the ship, pick the next one
+      next_ship = @ships_to_place.pop if place_ship_randomly(next_ship)
+    end
+    @board.render
+    p "Computer has placed their ships."
+  end
+  def place_ship_randomly(ship)
+    (rand*2).floor == 0 ? rand_rot = "vertical" : rand_rot = "horizontal"
+    x_mod = 1
+    y_mod = 1
+    #to prevent OOB, modify the random num generator by ship size based on orientation
+    rand_rot == "horizontal" ? y_mod = @ship_sizes[ship] : x_mod = @ship_sizes[ship]
+    rand_x = (rand*((@board.grid.length) - x_mod)).floor
+    rand_y = (rand*((@board.grid.length) - y_mod)).floor
+    place_ship_at_location(ship, [rand_x, rand_y], rand_rot)
   end
   # def ships_to_place
   #   @ships_to_place
@@ -68,7 +93,8 @@ class Computer < Player
   #   @ships_to_place.pop
   # end
 end
-# x = ComputerPlayer.new
+x = Computer.new
+x.place_ships_randomly
 # y = ComputerPlayer.new
 # p y.ships_to_place2
 # p x.board
@@ -214,14 +240,11 @@ class Human < Player
     p "in: #{input}, x: #{x}, y: #{y}, size:#{size}, rot: #{rot}"
     placed_ship ? [x,y] : place_ship_location_prompt(ship, [x, y], rot)
   end
-  def get_array_of_spaces_taken_by_ship(ship, pos, rot)
-    ship_size = @ship_sizes[ship]
-    @board.get_array_of_spaces(ship_size, pos, rot)
-  end
+
 end
 
-x = Human.new
-x.place_ships
+# x = Human.new
+# x.place_ships
 
 class HumanPlayer
   attr_accessor :name, :board, :attack_board, :finished_setting_ships
