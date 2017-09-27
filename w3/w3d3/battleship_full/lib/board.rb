@@ -21,6 +21,15 @@ class Board
     end
     g
   end
+  def get_array_of_spaces(size, pos, rot)
+    x = pos[0]
+    y = pos[1]
+    rot == "vertical" ? x2 = x + size : x2 = x
+    rot == "horizontal" ? y2 = y + size : y2 = y
+    # p "sposition: #{pos}, eposition: #{[y2, x2]}"
+    # render_ship_on_board(ship, @board.traverse(pos, [x2, y2]))
+    traverse(pos, [x2, y2])
+  end
   #a is starting position, b is ending point
   def place_ship(ship, a, b)
     #make sure ship type exists
